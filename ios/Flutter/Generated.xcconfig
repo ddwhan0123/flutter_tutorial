@@ -1,7 +1,7 @@
 // This is a generated file; do not edit or check into version control.
 FLUTTER_ROOT=/Users/jiajie.wang/Documents/learn/flutter
-FLUTTER_APPLICATION_PATH=/Users/jiajie.wang/Documents/learn/flutterSample/flutter_sample
-FLUTTER_TARGET=/Users/jiajie.wang/Documents/learn/flutterSample/flutter_sample/lib/main.dart
+FLUTTER_APPLICATION_PATH=/Users/jiajie.wang/Documents/learn/flutter_tutorial
+FLUTTER_TARGET=/Users/jiajie.wang/Documents/learn/flutter_tutorial/lib/main.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
 FLUTTER_FRAMEWORK_DIR=/Users/jiajie.wang/Documents/learn/flutter/bin/cache/artifacts/engine/ios
