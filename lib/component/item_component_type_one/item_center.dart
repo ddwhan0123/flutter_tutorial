@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/config/application.dart';
 import '../../style/style.dart' as styles;
 import '../../utils/ScreenUtil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -25,7 +26,7 @@ class ItemCenterViewImp extends State<ItemCenterView> {
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     var screenInstance = ScreenUtil.getInstance();
-    centerImgSize = (ScreenUtil.screenWidthDp);//根据屏幕宽度适配
+    centerImgSize = (ScreenUtil.screenWidthDp); //根据屏幕宽度适配
 
     return Container(
       width: ScreenUtil.screenWidth,
@@ -50,6 +51,19 @@ class ItemCenterViewImp extends State<ItemCenterView> {
   }
 
   _click(BuildContext context, String url) {
+    String message = "100861221";
+    String route ="/page/one?message=$message&color_hex=#ffffff";
+    String result ="11111";
+      if (result != null) {
+        route = "$route&result=$result";
+      }
+    Application.router
+        .navigateTo(context, route)
+        .then((result) {
+      print("--->" + result);
+    });
+    //  Application.router.navigateTo(
+    //     context, "/demo/fixedtrans?message=Hello!&color_hex=#333333");
     Fluttertoast.showToast(
         msg: url,
         toastLength: Toast.LENGTH_SHORT,
