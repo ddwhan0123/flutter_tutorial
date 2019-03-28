@@ -14,7 +14,6 @@ var rootHandler = new Handler(
 
 var pageOneHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-      print('--->pageOneHandler');
   String message = params["message"]?.first;
   String colorHex = params["color_hex"]?.first;
   Color color = new Color(0xFFFFFFFF);

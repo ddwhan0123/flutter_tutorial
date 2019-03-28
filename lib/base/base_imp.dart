@@ -17,12 +17,14 @@ class BaseMethodImp {
   }
 
   trackPageBegin({String eventID, Map data}) {
+    print('---> trackPageBegin eventID');
     if (null != eventID && eventID.isNotEmpty) {
       TrackService.trackBeginEvent(eventID: eventID, data: data);
     }
   }
 
   trackPageEnd({String eventID, Map data}) {
+     print('---> trackPageBegin eventID');
     if (null != eventID && eventID.isNotEmpty) {
       TrackService.trackEndEvent(eventID: eventID, data: data);
     }

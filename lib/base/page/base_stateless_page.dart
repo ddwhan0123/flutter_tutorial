@@ -9,6 +9,7 @@ abstract class NioBaseStatelessPage extends NioBaseStatelessWidget
   @protected
   String trackPageEndMethod();
 
+
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     switch (state) {

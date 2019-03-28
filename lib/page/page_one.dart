@@ -1,8 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/base/page/base_stateful_page.dart';
 import 'package:flutter_sample/helpers/color_helpers.dart';
 
-class PageOneComponent extends StatelessWidget {
- PageOneComponent(
+class PageOneComponent extends NioBaseStatefulPage {
+  PageOneComponent(
+      {String message = "Testing",
+      Color color = const Color(0xFFFFFFFF),
+      String result})
+      : this.message = message,
+        this.color = color,
+        this.result = result;
+  final String message;
+  final Color color;
+  final String result;
+
+  @override
+  State<StatefulWidget> createState() {
+    return PageOneState(message: message, color: color, result: result);
+  }
+}
+
+class PageOneState extends NioBasePageState<PageOneComponent> {
+  PageOneState(
       {String message = "Testing",
       Color color = const Color(0xFFFFFFFF),
       String result})
@@ -34,7 +53,7 @@ class PageOneComponent extends StatelessWidget {
               }
             },
             child: new Text(
-              message+" 是传来的",
+              message + " 是传来的",
               style: new TextStyle(
                 fontSize: 18.0,
                 color: ColorHelpers.blackOrWhiteContrastColor(color),
@@ -44,5 +63,15 @@ class PageOneComponent extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  String trackPageBeginMethod() {
+    return "页面开始方法";
+  }
+
+  @override
+  String trackPageEndMethod() {
+    return "页面结束方法";
   }
 }

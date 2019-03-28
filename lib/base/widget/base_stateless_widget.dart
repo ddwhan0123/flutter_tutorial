@@ -10,6 +10,8 @@ abstract class NioBaseStatelessWidget extends StatelessWidget {
     BaseMethodImp.instance.trackPageBegin(eventID: eventID, data: data);
   }
 
+  
+
   /*
   *页面结束埋点方法
   *@params eventID 页面ID
@@ -18,4 +20,6 @@ abstract class NioBaseStatelessWidget extends StatelessWidget {
   trackPageEnd({String eventID, Map data}) {
     BaseMethodImp.instance.trackPageEnd(eventID: eventID, data: data);
   }
+
+  
 }
