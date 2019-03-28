@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/base/page/base_stateful_page.dart';
 import '../component/home_main_item.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends NioBaseStatefulPage {
   @override
-  State<HomePage> createState() => HomeState();
+  State<StatefulWidget> createState() => HomeState();
 }
 
-class HomeState extends State<HomePage> {
+class HomeState extends NioBasePageState<HomePage> {
   
   @override
   Widget build(BuildContext context) {
@@ -50,6 +51,16 @@ class HomeState extends State<HomePage> {
   void dispose() {
     print('---> dispose');
     super.dispose();
+  }
+
+   @override
+  String trackPageBeginMethod() {
+    return "页面开始方法";
+  }
+
+  @override
+  String trackPageEndMethod() {
+    return "页面结束方法";
   }
 }
 
