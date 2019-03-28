@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/utils/screen_util.dart';
 import '../../style/style.dart' as styles;
-import '../../utils/ScreenUtil.dart';
 
 class ItemTitleView extends StatelessWidget {
   final String userHeaderImg; //头像地址

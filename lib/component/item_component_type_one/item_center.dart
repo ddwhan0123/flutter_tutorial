@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/config/application.dart';
+import 'package:flutter_sample/utils/screen_util.dart';
 import '../../style/style.dart' as styles;
-import '../../utils/ScreenUtil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class ItemCenterView extends StatefulWidget {
