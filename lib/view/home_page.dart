@@ -10,7 +10,6 @@ class HomeState extends State<HomePage> {
   
   @override
   Widget build(BuildContext context) {
-     print('--->HomeState build');
     var scaffold = Scaffold(
       appBar: AppBar(
         title: Text("ddwhan0123 sample"),

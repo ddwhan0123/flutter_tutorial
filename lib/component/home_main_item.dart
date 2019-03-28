@@ -25,7 +25,6 @@ class HomeMainItemState extends State<HomeMainItem> {
 
   //ListView的Item
   Widget buildItem(BuildContext context, int index) {
-    print('--->HomeMainItemState buildItem');
     return new ItemRootLayout(index);
   }
 }
