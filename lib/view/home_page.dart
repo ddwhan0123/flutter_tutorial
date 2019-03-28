@@ -25,31 +25,26 @@ class HomeState extends NioBasePageState<HomePage> {
   
  @override
   void initState() {
-    print('--->initState');
     super.initState();
   }
 
   @override
   void didChangeDependencies() {
-    print('--->didChangeDependencies');
     super.didChangeDependencies();
   }
 
   @override
   void didUpdateWidget(HomePage oldWidget) {
-    print('--->didUpdateWidget');
     super.didUpdateWidget(oldWidget);
   }
 
   @override
   void deactivate() {
-    print('---> deactivate');
     super.deactivate();
   }
 
   @override
   void dispose() {
-    print('---> dispose');
     super.dispose();
   }
 

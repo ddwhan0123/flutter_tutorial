@@ -60,7 +60,7 @@ class ItemCenterViewImp extends State<ItemCenterView> {
     Application.router
         .navigateTo(context, route)
         .then((result) {
-      print("--->" + result);
+      print("---> " + result);
     });
     //  Application.router.navigateTo(
     //     context, "/demo/fixedtrans?message=Hello!&color_hex=#333333");

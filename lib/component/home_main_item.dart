@@ -19,7 +19,6 @@ class HomeMainItemState extends State<HomeMainItem> {
 
   @override
   void initState() {
-    print('--->HomeMainItemState initState');
     super.initState();
   }
 

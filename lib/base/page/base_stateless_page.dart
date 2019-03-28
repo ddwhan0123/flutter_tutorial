@@ -14,16 +14,12 @@ abstract class NioBaseStatelessPage extends NioBaseStatelessWidget
   void didChangeAppLifecycleState(AppLifecycleState state) {
     switch (state) {
       case AppLifecycleState.inactive:
-        print('---> AppLifecycleState.inactive');
         break;
       case AppLifecycleState.paused:
-        print('---> AppLifecycleState.paused' + trackPageEndMethod());
         break;
       case AppLifecycleState.resumed:
-        print('---> NioBaseStatelessPage AppLifecycleState.resumed' + trackPageBeginMethod());
         break;
       case AppLifecycleState.suspending:
-        print('--->  AppLifecycleState.suspending');
         break;
     }
 
