@@ -11,20 +11,22 @@ class HomeMainItem extends StatefulWidget {
 }
 
 class HomeMainItemState extends State<HomeMainItem> {
-  //定义底部导航Tab
-  TabController _bottomNavigation;
-  final List<Tab> _topTabs = <Tab>[
-    new Tab(
-      text: '推荐',
+  final List<Container> _topTabs = <Container>[
+    new Container(
+      width: 55.0,
+      child: new Tab(text: '推荐'),
     ),
-    new Tab(
-      text: '此刻',
+    new Container(
+      width: 55.0,
+      child: new Tab(text: '此刻'),
     ),
-    new Tab(
-      text: '体验',
+    new Container(
+      width: 55.0,
+      child: new Tab(text: '体验'),
     ),
-    new Tab(
-      text: '资讯',
+    new Container(
+      width: 55.0,
+      child: new Tab(text: '资讯'),
     ),
   ];
 
@@ -35,8 +37,9 @@ class HomeMainItemState extends State<HomeMainItem> {
         elevation: 0,
         title: TabBar(
           tabs: _topTabs,
-          isScrollable: true,
+          isScrollable: false,
           labelColor: Colors.black,
+          labelPadding: EdgeInsets.only(right: 5.0, left: 5.0),
           indicator: UnderlineTabIndicator(
               borderSide: BorderSide(width: 3.0, color: Color(0xFF00BCBC)),
               insets: EdgeInsets.symmetric(horizontal: 7.5)),
@@ -51,7 +54,7 @@ class HomeMainItemState extends State<HomeMainItem> {
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: IconButton(
-              icon: const Icon(Icons.add, color: Colors.black),
+              icon: Image.asset('assets/images/home_add_icon.png'),
               onPressed: () {},
             ),
           )
@@ -61,7 +64,7 @@ class HomeMainItemState extends State<HomeMainItem> {
             return Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: IconButton(
-                icon: const Icon(Icons.search, color: Colors.black),
+                icon: Image.asset('assets/images/home_search_icon.png'),
                 onPressed: () {},
               ),
             );
@@ -71,16 +74,15 @@ class HomeMainItemState extends State<HomeMainItem> {
       body: new TabBarView(
         children: <Widget>[
           new ListView.builder(
-            itemCount: 3,
-            itemBuilder: (BuildContext context, int position) {
-             return buildItem(context, position);
-            }),
+              itemCount: 3,
+              itemBuilder: (BuildContext context, int position) {
+                return buildItem(context, position);
+              }),
           new MomentComponent(),
           new ExperienceComponent(),
           new InformationComponent(),
         ],
       ),
-
     );
     return DefaultTabController(
       length: _topTabs.length,
