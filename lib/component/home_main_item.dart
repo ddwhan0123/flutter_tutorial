@@ -35,39 +35,11 @@ class HomeMainItemState extends State<HomeMainItem> {
     var scaffold = Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: TabBar(
-          tabs: _topTabs,
-          isScrollable: false,
-          labelColor: Colors.black,
-          labelPadding: EdgeInsets.only(right: 5.0, left: 5.0),
-          indicator: UnderlineTabIndicator(
-              borderSide: BorderSide(width: 3.0, color: Color(0xFF00BCBC)),
-              insets: EdgeInsets.symmetric(horizontal: 7.5)),
-          labelStyle: new TextStyle(fontSize: 18.0, color: Colors.black),
-          indicatorSize: TabBarIndicatorSize.label,
-          unselectedLabelColor: styles.ComponentStyle.FOOT_TEXT_COLOR,
-          unselectedLabelStyle: new TextStyle(
-            fontSize: 16.0,
-          ),
-        ),
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(left: 8.0),
-            child: IconButton(
-              icon: Image.asset('assets/images/home_add_icon.png',width: 20,height: 20,),
-              onPressed: () {},
-            ),
-          )
-        ],
+        title: renderBar(),
+        actions: <Widget>[renderRight()],
         leading: Builder(
           builder: (BuildContext context) {
-            return Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: IconButton(
-                icon: Image.asset('assets/images/home_search_icon.png',width: 20,height: 20,),
-                onPressed: () {},
-              ),
-            );
+            return renderLeft();
           },
         ),
       ),
@@ -98,5 +70,64 @@ class HomeMainItemState extends State<HomeMainItem> {
   //ListView的Item
   Widget buildItem(BuildContext context, int index) {
     return new ItemRootLayout(index);
+  }
+
+  /*
+   * 渲染自定义底部横线
+   */
+  UnderlineTabIndicator renderCustomIndicator() {
+    return UnderlineTabIndicator(
+        borderSide: BorderSide(width: 3.0, color: Color(0xFF00BCBC)),
+        insets: EdgeInsets.symmetric(horizontal: 7.5));
+  }
+
+  /*
+  * 渲染右上角的按钮
+  * **/
+  Padding renderRight() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0),
+      child: IconButton(
+        icon: Image.asset(
+          'assets/images/home_add_icon.png',
+          width: 20,
+          height: 20,
+        ),
+        onPressed: () {},
+      ),
+    );
+  }
+
+  /*
+  * 渲染左上角的按钮
+  * **/
+  Padding renderLeft() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0),
+      child: IconButton(
+        icon: Image.asset(
+          'assets/images/home_search_icon.png',
+          width: 20,
+          height: 20,
+        ),
+        onPressed: () {},
+      ),
+    );
+  }
+
+  TabBar renderBar() {
+    return TabBar(
+      tabs: _topTabs,
+      isScrollable: false,
+      labelColor: Colors.black,
+      labelPadding: EdgeInsets.only(right: 5.0, left: 5.0),
+      indicator: renderCustomIndicator(),
+      labelStyle: new TextStyle(fontSize: 18.0, color: Colors.black),
+      indicatorSize: TabBarIndicatorSize.label,
+      unselectedLabelColor: styles.ComponentStyle.FOOT_TEXT_COLOR,
+      unselectedLabelStyle: new TextStyle(
+        fontSize: 16.0,
+      ),
+    );
   }
 }

@@ -13,15 +13,11 @@ class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   final _bottomNavigationColor = Colors.black;
   int _currentIndex = 0;
   List<Widget> list = List();
-
+  List<String> imges = List();
+  List<String> imgesData = List();
   @override
   void initState() {
-    list
-      ..add(HomeMainItem())
-      ..add(MomentComponent())
-      ..add(ExperienceComponent())
-      ..add(InformationComponent())
-      ..add(InformationComponent());
+    initList();
     super.initState();
   }
 
@@ -35,63 +31,106 @@ class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
             items: [
               BottomNavigationBarItem(
                   icon: Image.asset(
-                    'assets/images/personal_home_on.png',
+                    imges[0],
                     width: 20,
                     height: 20,
                   ),
                   title: Text(
                     '发现',
-                    style: TextStyle(color: _bottomNavigationColor,fontSize: 12),
+                    style:
+                        TextStyle(color: _bottomNavigationColor, fontSize: 12),
                   )),
               BottomNavigationBarItem(
                   icon: Image.asset(
-                    'assets/images/persional_friend.png',
+                    imges[1],
                     width: 20,
                     height: 20,
                   ),
                   title: Text(
                     '朋友',
-                    style: TextStyle(color: _bottomNavigationColor,fontSize: 12),
+                    style:
+                        TextStyle(color: _bottomNavigationColor, fontSize: 12),
                   )),
               BottomNavigationBarItem(
                   icon: Image.asset(
-                    'assets/images/personal_mycar.png',
+                    imges[2],
                     width: 20,
                     height: 20,
                   ),
                   title: Text(
                     '爱车',
-                    style: TextStyle(color: _bottomNavigationColor,fontSize: 12),
+                    style:
+                        TextStyle(color: _bottomNavigationColor, fontSize: 12),
                   )),
               BottomNavigationBarItem(
                   icon: Image.asset(
-                    'assets/images/personal_gift.png',
+                    imges[3],
                     width: 20,
                     height: 20,
                   ),
                   title: Text(
                     '惊喜',
-                    style: TextStyle(color: _bottomNavigationColor,fontSize: 12),
+                    style:
+                        TextStyle(color: _bottomNavigationColor, fontSize: 12),
                   )),
               BottomNavigationBarItem(
                   icon: Image.asset(
-                    'assets/images/personal_my.png',
+                    imges[4],
                     width: 20,
                     height: 20,
                   ),
                   title: Text(
                     '我的',
-                    style: TextStyle(color: _bottomNavigationColor,fontSize: 12),
+                    style:
+                        TextStyle(color: _bottomNavigationColor, fontSize: 12),
                   )),
             ],
             currentIndex: _currentIndex,
             onTap: (int index) {
               setState(() {
                 _currentIndex = index;
+                imges = changeIconLogic(index);
               });
             },
             type: BottomNavigationBarType.fixed,
           ),
         ));
+  }
+
+  //构建底部数据源
+  initList() {
+    list
+      ..add(HomeMainItem())
+      ..add(MomentComponent())
+      ..add(ExperienceComponent())
+      ..add(InformationComponent())
+      ..add(InformationComponent());
+
+    imgesData
+      ..add('assets/images/personal_home')
+      ..add('assets/images/persional_friend')
+      ..add('assets/images/personal_mycar')
+      ..add('assets/images/personal_gift')
+      ..add('assets/images/personal_my');
+    for (int k = 0; k < imgesData.length; k++) {
+      if (k == _currentIndex) {
+        imges.add(imgesData[k] + '_on.png');
+      } else {
+        imges.add(imgesData[k] + '.png');
+      }
+    }
+  }
+
+  List<String> changeIconLogic(int index) {
+    List<String> temp = imges;
+    for (int k = 0; k < imgesData.length; k++) {
+      if (k == index) {
+        temp[k] = imgesData[k] + '_on.png';
+      } else {
+        temp[k] = imgesData[k] + '.png';
+      }
+      print(temp[k]);
+    }
+    return temp;
   }
 }
