@@ -3,7 +3,9 @@ import 'package:flutter_sample/base/base_imp.dart';
 import 'package:flutter_sample/utils/toast_utils.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-abstract class NioBaseStatefulPage extends StatefulWidget {}
+abstract class NioBaseStatefulPage extends StatefulWidget {
+  const NioBaseStatefulPage({ Key key }) : super(key: key);
+}
 
 /*
  * 

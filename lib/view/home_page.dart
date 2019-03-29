@@ -7,7 +7,7 @@ class HomePage extends NioBaseStatefulPage {
   State<StatefulWidget> createState() => HomeState();
 }
 
-class HomeState extends NioBasePageState<HomePage> {
+class HomeState extends NioBasePageState<HomePage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     var scaffold = Scaffold(
