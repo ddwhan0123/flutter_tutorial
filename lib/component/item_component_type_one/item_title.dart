@@ -51,7 +51,7 @@ class ItemTitleView extends StatelessWidget {
                 textAlign: TextAlign.left,
                 style: new TextStyle(
                     color: styles.ComponentStyle.TITLE_TEXT_COLOR,
-                    fontSize: screenInstance.setSp(40)),
+                    fontSize: screenInstance.setSp(38)),
               ),
             ),
             _visibilityLogic(_renderIconImg(screenInstance))

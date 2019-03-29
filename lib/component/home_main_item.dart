@@ -54,7 +54,7 @@ class HomeMainItemState extends State<HomeMainItem> {
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: IconButton(
-              icon: Image.asset('assets/images/home_add_icon.png'),
+              icon: Image.asset('assets/images/home_add_icon.png',width: 20,height: 20,),
               onPressed: () {},
             ),
           )
@@ -64,7 +64,7 @@ class HomeMainItemState extends State<HomeMainItem> {
             return Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: IconButton(
-                icon: Image.asset('assets/images/home_search_icon.png'),
+                icon: Image.asset('assets/images/home_search_icon.png',width: 20,height: 20,),
                 onPressed: () {},
               ),
             );

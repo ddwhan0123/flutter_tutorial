@@ -42,7 +42,7 @@ class ItemCenterViewImp extends State<ItemCenterView> {
                 textAlign: TextAlign.left,
                 style: new TextStyle(
                     color: styles.ComponentStyle.TITLE_TEXT_COLOR,
-                    fontSize: screenInstance.setSp(46)),
+                    fontSize: screenInstance.setSp(40)),
               ),
             ),
             _renderViewGroup(screenInstance, context),
@@ -52,14 +52,12 @@ class ItemCenterViewImp extends State<ItemCenterView> {
 
   _click(BuildContext context, String url) {
     String message = "100861221";
-    String route ="/page/one?message=$message&color_hex=#ffffff";
-    String result ="11111";
-      if (result != null) {
-        route = "$route&result=$result";
-      }
-    Application.router
-        .navigateTo(context, route)
-        .then((result) {
+    String route = "/page/one?message=$message&color_hex=#ffffff";
+    String result = "11111";
+    if (result != null) {
+      route = "$route&result=$result";
+    }
+    Application.router.navigateTo(context, route).then((result) {
       print("---> " + result);
     });
     //  Application.router.navigateTo(

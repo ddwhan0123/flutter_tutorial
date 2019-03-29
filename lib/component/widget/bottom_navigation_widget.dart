@@ -30,7 +30,7 @@ class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
     return Scaffold(
         body: list[_currentIndex],
         bottomNavigationBar: SizedBox(
-          height: 58,
+          height: 54,
           child: BottomNavigationBar(
             items: [
               BottomNavigationBarItem(
@@ -41,7 +41,7 @@ class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                   ),
                   title: Text(
                     '发现',
-                    style: TextStyle(color: _bottomNavigationColor),
+                    style: TextStyle(color: _bottomNavigationColor,fontSize: 12),
                   )),
               BottomNavigationBarItem(
                   icon: Image.asset(
@@ -51,7 +51,7 @@ class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                   ),
                   title: Text(
                     '朋友',
-                    style: TextStyle(color: _bottomNavigationColor),
+                    style: TextStyle(color: _bottomNavigationColor,fontSize: 12),
                   )),
               BottomNavigationBarItem(
                   icon: Image.asset(
@@ -61,7 +61,7 @@ class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                   ),
                   title: Text(
                     '爱车',
-                    style: TextStyle(color: _bottomNavigationColor),
+                    style: TextStyle(color: _bottomNavigationColor,fontSize: 12),
                   )),
               BottomNavigationBarItem(
                   icon: Image.asset(
@@ -71,7 +71,7 @@ class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                   ),
                   title: Text(
                     '惊喜',
-                    style: TextStyle(color: _bottomNavigationColor),
+                    style: TextStyle(color: _bottomNavigationColor,fontSize: 12),
                   )),
               BottomNavigationBarItem(
                   icon: Image.asset(
@@ -81,7 +81,7 @@ class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                   ),
                   title: Text(
                     '我的',
-                    style: TextStyle(color: _bottomNavigationColor),
+                    style: TextStyle(color: _bottomNavigationColor,fontSize: 12),
                   )),
             ],
             currentIndex: _currentIndex,
