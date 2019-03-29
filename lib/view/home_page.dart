@@ -4,7 +4,6 @@ import 'package:flutter_sample/page/home/top_experience.dart';
 import 'package:flutter_sample/page/home/top_information.dart';
 import 'package:flutter_sample/page/home/top_moment.dart';
 import '../component/home_main_item.dart';
-import '../style/style.dart' as styles;
 
 class HomePage extends NioBaseStatefulPage {
   @override
@@ -13,21 +12,6 @@ class HomePage extends NioBaseStatefulPage {
 
 class HomeState extends NioBasePageState<HomePage>
     with SingleTickerProviderStateMixin {
-  final List<Tab> _topTabs = <Tab>[
-    new Tab(
-      text: '推荐',
-    ),
-    new Tab(
-      text: '此刻',
-    ),
-    new Tab(
-      text: '体验',
-    ),
-    new Tab(
-      text: '资讯',
-    ),
-  ];
-
   //定义底部导航项目
   final List<Tab> _bottomTabs = <Tab>[
     new Tab(
@@ -58,63 +42,27 @@ class HomeState extends NioBasePageState<HomePage>
   @override
   Widget build(BuildContext context) {
     var scaffold = Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        title: TabBar(
-          tabs: _topTabs,
-          isScrollable: true,
-          labelColor: Colors.black,
-          indicator: UnderlineTabIndicator(
-              borderSide: BorderSide(width: 3.0, color: Color(0xFF00BCBC)),
-              insets: EdgeInsets.symmetric(horizontal: 7.5)),
-          labelStyle: new TextStyle(fontSize: 18.0, color: Colors.black),
-          indicatorSize: TabBarIndicatorSize.label,
-          unselectedLabelColor: styles.ComponentStyle.FOOT_TEXT_COLOR,
-          unselectedLabelStyle: new TextStyle(
-            fontSize: 16.0,
-          ),
-        ),
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(left: 8.0),
-            child: IconButton(
-              icon: const Icon(Icons.add, color: Colors.black),
-              onPressed: () {},
-            ),
-          )
-        ],
-        leading: Builder(
-          builder: (BuildContext context) {
-            return Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: IconButton(
-                icon: const Icon(Icons.search, color: Colors.black),
-                onPressed: () {},
-              ),
-            );
-          },
-        ),
-      ),
       body: new TabBarView(
+        controller: _bottomNavigation,
         children: <Widget>[
           new HomeMainItem(),
           new MomentComponent(),
           new ExperienceComponent(),
           new InformationComponent(),
+          new InformationComponent(),
         ],
       ),
-
-      // bottomNavigationBar: new Material(
-      //   color: Colors.white, //底部导航栏主题颜色
-      //   child: new TabBar(
-      //     controller: _bottomNavigation,
-      //     tabs: _bottomTabs,
-      //     labelColor: Colors.black,
-      //   ),
-      // ),
+      bottomNavigationBar: new Material(
+        color: Colors.white, //底部导航栏主题颜色
+        child: new TabBar(
+          controller: _bottomNavigation,
+          tabs: _bottomTabs,
+          labelColor: Colors.black,
+        ),
+      ),
     );
     return DefaultTabController(
-      length: _topTabs.length,
+      length: _bottomTabs.length,
       child: scaffold,
     );
   }
