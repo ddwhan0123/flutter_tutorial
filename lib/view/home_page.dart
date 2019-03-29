@@ -8,22 +8,15 @@ class HomePage extends NioBaseStatefulPage {
 }
 
 class HomeState extends NioBasePageState<HomePage> {
-  
   @override
   Widget build(BuildContext context) {
     var scaffold = Scaffold(
-      appBar: AppBar(
-        title: Text("ddwhan0123 sample"),
-        elevation: 1.0,
-      ),
-      body: Center(
-        child: new HomeMainItem()
-      ),
+      body: Center(child: new HomeMainItem()),
     );
     return scaffold;
   }
-  
- @override
+
+  @override
   void initState() {
     super.initState();
   }
@@ -48,7 +41,7 @@ class HomeState extends NioBasePageState<HomePage> {
     super.dispose();
   }
 
-   @override
+  @override
   String trackPageBeginMethod() {
     return "页面开始方法";
   }
@@ -58,5 +51,3 @@ class HomeState extends NioBasePageState<HomePage> {
     return "页面结束方法";
   }
 }
-
-
