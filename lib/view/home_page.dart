@@ -60,20 +60,39 @@ class HomeState extends NioBasePageState<HomePage>
     var scaffold = Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
         title: TabBar(
           tabs: _topTabs,
           isScrollable: true,
           labelColor: Colors.black,
           indicator: UnderlineTabIndicator(
               borderSide: BorderSide(width: 3.0, color: Color(0xFF00BCBC)),
-              insets: EdgeInsets.symmetric(horizontal: 8.0)),
+              insets: EdgeInsets.symmetric(horizontal: 7.5)),
           labelStyle: new TextStyle(fontSize: 18.0, color: Colors.black),
           indicatorSize: TabBarIndicatorSize.label,
           unselectedLabelColor: styles.ComponentStyle.FOOT_TEXT_COLOR,
           unselectedLabelStyle: new TextStyle(
             fontSize: 16.0,
           ),
+        ),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: IconButton(
+              icon: const Icon(Icons.add, color: Colors.black),
+              onPressed: () {},
+            ),
+          )
+        ],
+        leading: Builder(
+          builder: (BuildContext context) {
+            return Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: IconButton(
+                icon: const Icon(Icons.search, color: Colors.black),
+                onPressed: () {},
+              ),
+            );
+          },
         ),
       ),
       body: new TabBarView(
@@ -84,6 +103,7 @@ class HomeState extends NioBasePageState<HomePage>
           new InformationComponent(),
         ],
       ),
+
       // bottomNavigationBar: new Material(
       //   color: Colors.white, //底部导航栏主题颜色
       //   child: new TabBar(
