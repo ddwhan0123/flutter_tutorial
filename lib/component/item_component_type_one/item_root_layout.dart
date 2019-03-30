@@ -19,7 +19,7 @@ class ItemRootLayoutImp extends State<ItemRootLayout> {
   Widget build(BuildContext context) => new Container(
       color: Colors.white,
       child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          padding: const EdgeInsets.symmetric(horizontal: 25.0),
           child: Column(
             children: <Widget>[
               new ItemTitleView(

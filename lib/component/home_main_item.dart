@@ -77,8 +77,8 @@ class HomeMainItemState extends State<HomeMainItem> {
    */
   UnderlineTabIndicator renderCustomIndicator() {
     return UnderlineTabIndicator(
-        borderSide: BorderSide(width: 3.0, color: Color(0xFF00BCBC)),
-        insets: EdgeInsets.symmetric(horizontal: 7.5));
+        borderSide: BorderSide(width: 2.5, color: Color(0xFF00BCBC)),
+        insets: EdgeInsets.fromLTRB(12, 0, 12, 5));
   }
 
   /*

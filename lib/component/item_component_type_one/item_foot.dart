@@ -30,7 +30,7 @@ class ItemFootViewImp extends State<ItemFootView> {
             '03-18',
             style: new TextStyle(
                 color: styles.ComponentStyle.TITLE_TEXT_COLOR,
-                fontSize: screenInstance.setSp(30)),
+                fontSize: screenInstance.setSp(24)),
           ),
           new Expanded(
               child: new Row(
@@ -67,7 +67,7 @@ class ItemFootViewImp extends State<ItemFootView> {
                     value,
                     style: new TextStyle(
                         color: styles.ComponentStyle.TITLE_TEXT_COLOR,
-                        fontSize: instance.setSp(30)),
+                        fontSize: instance.setSp(24)),
                   ),
                 ],
               ),

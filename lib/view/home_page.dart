@@ -17,7 +17,6 @@ class HomeState extends NioBasePageState<HomePage>
     );
   }
 
-  //初始化导航Tab控制器
   @override
   void initState() {
     super.initState();

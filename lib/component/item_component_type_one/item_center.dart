@@ -42,7 +42,7 @@ class ItemCenterViewImp extends State<ItemCenterView> {
                 textAlign: TextAlign.left,
                 style: new TextStyle(
                     color: styles.ComponentStyle.TITLE_TEXT_COLOR,
-                    fontSize: screenInstance.setSp(40)),
+                    fontSize: screenInstance.setSp(34)),
               ),
             ),
             _renderViewGroup(screenInstance, context),
@@ -87,11 +87,8 @@ class ItemCenterViewImp extends State<ItemCenterView> {
               image: new NetworkImage(this.imgUrl),
               fit: BoxFit.cover,
             ),
-            borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
-            border: new Border.all(
-              color: Colors.black,
-              width: 1.0,
-            ),
+            borderRadius: new BorderRadius.all(new Radius.circular(6.0)),
+          
           ),
         ),
       ),
