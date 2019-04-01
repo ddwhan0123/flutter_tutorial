@@ -11,7 +11,9 @@ class HomeMainItem extends StatefulWidget {
 }
 
 class HomeMainItemState extends State<HomeMainItem> {
+  //头部tab数据源
   final List<Container> _topTabs = <Container>[
+    //主动给了个宽度，防止子控件内部挤压
     new Container(
       width: 55.0,
       child: new Tab(text: '推荐'),
@@ -44,6 +46,7 @@ class HomeMainItemState extends State<HomeMainItem> {
         ),
       ),
       body: new TabBarView(
+        //子项为滑动切换的各个容器
         children: <Widget>[
           new ListView.builder(
               itemCount: 3,
@@ -56,6 +59,7 @@ class HomeMainItemState extends State<HomeMainItem> {
         ],
       ),
     );
+    //tab的容器
     return DefaultTabController(
       length: _topTabs.length,
       child: scaffold,
@@ -76,6 +80,7 @@ class HomeMainItemState extends State<HomeMainItem> {
    * 渲染自定义底部横线
    */
   UnderlineTabIndicator renderCustomIndicator() {
+    //系统自带的方法里没有主动设置指示器宽度的放啊
     return UnderlineTabIndicator(
         borderSide: BorderSide(width: 2.5, color: Color(0xFF00BCBC)),
         insets: EdgeInsets.fromLTRB(12, 0, 12, 5));
@@ -85,6 +90,7 @@ class HomeMainItemState extends State<HomeMainItem> {
   * 渲染右上角的按钮
   * **/
   Padding renderRight() {
+    //包一个Padding控制按钮位置
     return Padding(
       padding: const EdgeInsets.only(left: 8.0),
       child: IconButton(
@@ -102,6 +108,7 @@ class HomeMainItemState extends State<HomeMainItem> {
   * 渲染左上角的按钮
   * **/
   Padding renderLeft() {
+    //包一个Padding控制按钮位置
     return Padding(
       padding: const EdgeInsets.only(left: 8.0),
       child: IconButton(
@@ -118,7 +125,7 @@ class HomeMainItemState extends State<HomeMainItem> {
   TabBar renderBar() {
     return TabBar(
       tabs: _topTabs,
-      isScrollable: false,
+      isScrollable: false, //不可滚动，该排为定死在最上面(如果item过多一定要支持滚动)
       labelColor: Colors.black,
       labelPadding: EdgeInsets.only(right: 5.0, left: 5.0),
       indicator: renderCustomIndicator(),

@@ -7,6 +7,7 @@ import 'package:fluro/fluro.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  //main.dart容器类的构造函数里初始化路由
   MyApp() {
     final router = new Router();
     Routes.configureRoutes(router);
