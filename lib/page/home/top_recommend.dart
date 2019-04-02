@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
 
-class RecommendComponent extends NioBaseStatefulPage {
+class RecommendComponent extends BaseStatefulPage {
   //构造函数传参
   const RecommendComponent({Key key, this.data}) : super(key: key);
   final String data;
@@ -12,7 +12,7 @@ class RecommendComponent extends NioBaseStatefulPage {
   }
 }
 
-class RecommendComponentState extends NioBasePageState {
+class RecommendComponentState extends BasePageState {
   @override
   Widget build(BuildContext context) {
     return new Text("RecommendComponentState");

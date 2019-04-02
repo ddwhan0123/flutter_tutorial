@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
 import 'package:flutter_sample/component/widget/bottom_navigation_widget.dart';
 
-class HomePage extends NioBaseStatefulPage {
+class HomePage extends BaseStatefulPage {
   @override
   State<StatefulWidget> createState() => HomeState();
 }
 
-class HomeState extends NioBasePageState<HomePage>
+class HomeState extends BasePageState<HomePage>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {

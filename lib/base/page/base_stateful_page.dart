@@ -3,15 +3,15 @@ import 'package:flutter_sample/base/base_imp.dart';
 import 'package:flutter_sample/utils/toast_utils.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-abstract class NioBaseStatefulPage extends StatefulWidget {
-  const NioBaseStatefulPage({ Key key }) : super(key: key);
+abstract class BaseStatefulPage extends StatefulWidget {
+  const BaseStatefulPage({ Key key }) : super(key: key);
 }
 
 /*
  * 
  * State的抽象类父类，实现生命周期回调
  */
-abstract class NioBasePageState<T extends NioBaseStatefulPage> extends State
+abstract class BasePageState<T extends BaseStatefulPage> extends State
     with WidgetsBindingObserver {
   //给子类实现的页面开始方法
   @protected

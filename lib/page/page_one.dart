@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
 import 'package:flutter_sample/helpers/color_helpers.dart';
 
-class PageOneComponent extends NioBaseStatefulPage {
+class PageOneComponent extends BaseStatefulPage {
   PageOneComponent(
       {String message = "Testing",
       Color color = const Color(0xFFFFFFFF),
@@ -20,7 +20,7 @@ class PageOneComponent extends NioBaseStatefulPage {
   }
 }
 
-class PageOneState extends NioBasePageState<PageOneComponent> {
+class PageOneState extends BasePageState<PageOneComponent> {
   PageOneState(
       {String message = "Testing",
       Color color = const Color(0xFFFFFFFF),

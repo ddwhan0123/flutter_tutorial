@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/widget/base_stateless_widget.dart';
 
-abstract class NioBaseStatelessPage extends NioBaseStatelessWidget
+abstract class NioBaseStatelessPage extends BaseStatelessWidget
     with WidgetsBindingObserver {
   @protected
   String trackPageBeginMethod();

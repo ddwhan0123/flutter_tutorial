@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
 
-class ExperienceComponent extends NioBaseStatefulPage {
+class ExperienceComponent extends BaseStatefulPage {
   //构造函数传参
   const ExperienceComponent({Key key, this.data}) : super(key: key);
   final String data;
@@ -12,7 +12,7 @@ class ExperienceComponent extends NioBaseStatefulPage {
   }
 }
 
-class ExperienceComponentState extends NioBasePageState {
+class ExperienceComponentState extends BasePageState {
   @override
   Widget build(BuildContext context) {
     return new Text("ExperienceComponentState");

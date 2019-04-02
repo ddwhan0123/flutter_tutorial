@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/base_imp.dart';
-abstract class NioBaseStatelessWidget extends StatelessWidget {
+abstract class BaseStatelessWidget extends StatelessWidget {
   /*
   *页面开始方法
   *@params eventID 页面ID

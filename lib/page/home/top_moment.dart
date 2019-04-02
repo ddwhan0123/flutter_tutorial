@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
 
-class MomentComponent extends NioBaseStatefulPage {
+class MomentComponent extends BaseStatefulPage {
   //构造函数传参
   const MomentComponent({Key key, this.data}) : super(key: key);
   final String data;
@@ -12,7 +12,7 @@ class MomentComponent extends NioBaseStatefulPage {
   }
 }
 
-class MomentComponentState extends NioBasePageState {
+class MomentComponentState extends BasePageState {
   @override
   Widget build(BuildContext context) {
     return new Text("MomentComponentState");

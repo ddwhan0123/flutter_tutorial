@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/base_imp.dart';
 
 
-abstract class NioBaseStatefullWidget extends StatefulWidget {
+abstract class BaseStatefullWidget extends StatefulWidget {
   
   trackPageBegin({String eventID, Map data}) {
     BaseMethodImp.instance.trackPageBegin(eventID: eventID, data: data);
