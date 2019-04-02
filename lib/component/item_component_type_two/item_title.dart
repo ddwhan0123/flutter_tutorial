@@ -44,10 +44,13 @@ class ItemTitleTypeTwo extends BaseStatelessWidget {
   }
 
   Widget renderRight() {
-    return new Image.asset(
-      'assets/images/icon_right_arrow.png',
-      width: 18,
-      height: 18,
+    return Container(
+      margin: EdgeInsets.only(right: 25),
+      child: new Image.asset(
+        'assets/images/icon_right_arrow.png',
+        width: 18,
+        height: 18,
+      ),
     );
   }
 }

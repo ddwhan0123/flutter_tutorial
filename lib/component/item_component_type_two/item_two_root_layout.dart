@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/widget/base_stateless_widget.dart';
 import 'package:flutter_sample/component/item_component_type_two/item_title.dart';
+import 'package:flutter_sample/component/item_component_type_two/item_view_pager.dart';
 
 class ItemRootTypeTwo extends BaseStatelessWidget {
+  final String title;
+  final List imgList;
+  ItemRootTypeTwo(this.title, this.imgList);
+
   @override
   Widget build(BuildContext context) {
-    return new Column(
-      children: <Widget>[
-        new ItemTitleTypeTwo('ES8/ES6最新政策&邀请试驾', () {
-          showToast('ES8/ES6最新政策&邀请试驾');
-        })
-      ],
+    return Padding(
+      padding: EdgeInsets.only(left: 25.0),
+      child: new Column(
+        children: <Widget>[
+          new ItemTitleTypeTwo(this.title, () {
+            showToast(this.title);
+          }),
+          ItemViewPagerTypeTwo(this.imgList)
+        ],
+      ),
     );
   }
 }
