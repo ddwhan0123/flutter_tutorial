@@ -25,7 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   fluttertoast: ^3.0.1
   fluro: "^1.4.0"
-
+  flustars: ^0.2.5 # 工具包
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

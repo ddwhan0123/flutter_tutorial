@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/component/widget/pop/home_popover.dart';
+import 'package:flutter_sample/component/widget/pop/home_popover_menu_item.dart';
 import 'package:flutter_sample/page/home/top_experience.dart';
 import 'package:flutter_sample/page/home/top_information.dart';
 import 'package:flutter_sample/page/home/top_moment.dart';
@@ -86,21 +88,13 @@ class HomeMainItemState extends State<HomeMainItem> {
         insets: EdgeInsets.fromLTRB(12, 0, 12, 5));
   }
 
-  /*
+    /*
   * 渲染右上角的按钮
   * **/
-  Padding renderRight() {
-    //包一个Padding控制按钮位置
-    return Padding(
-      padding: const EdgeInsets.only(left: 8.0),
-      child: IconButton(
-        icon: Image.asset(
-          'assets/images/home_add_icon.png',
-          width: 20,
-          height: 20,
-        ),
-        onPressed: () {},
-      ),
+  Container renderRight() {
+    return Container(
+      margin: EdgeInsets.only(right: 26.0, left: 0.0),
+      child: _buildPopoverButton(),
     );
   }
 
@@ -137,4 +131,82 @@ class HomeMainItemState extends State<HomeMainItem> {
       ),
     );
   }
+
+  Widget _buildPopoverButton() {
+    return CupertinoPopoverButton(
+            popoverColor: Color(0xFF696D7F),
+            child: Center(
+              child: Image.asset(
+                'assets/images/home_add_icon.png',
+                width: 18,
+                height: 18,
+              ),
+            ),
+            popoverBuild: (context) {
+              return CupertinoPopoverMenuList(
+                children: <Widget>[
+                  CupertinoPopoverMenuItem(
+                      itemID: 0,
+                      leading: Image.asset(
+                        'assets/images/icon_send_moment.png',
+                        width: 18,
+                        height: 18,
+                      ),
+                      child: Text(
+                        "发此刻",
+                        style:
+                            TextStyle(color: Color(0xffFFFFFF), fontSize: 16.0),
+                      ),
+                      onItemClick: (itemID) {
+                      print('---> itemID ' + itemID.toString());
+                      }),
+                  CupertinoPopoverMenuItem(
+                      itemID: 1,
+                      leading: Image.asset(
+                        'assets/images/icon_new_group_chat.png',
+                        width: 18,
+                        height: 18,
+                      ),
+                      child: Text(
+                        "建群聊",
+                        style:
+                            TextStyle(color: Color(0xffFFFFFF), fontSize: 16.0),
+                      ),
+                      onItemClick: (itemID) {
+                        print('---> itemID ' + itemID.toString());
+                      }),
+                  CupertinoPopoverMenuItem(
+                      itemID: 2,
+                      leading: Image.asset(
+                        'assets/images/icon_scan_code.png',
+                        width: 18,
+                        height: 18,
+                      ),
+                      child: Text(
+                        "扫一扫",
+                        style:
+                            TextStyle(color: Color(0xffFFFFFF), fontSize: 16.0),
+                      ),
+                      onItemClick: (itemID) {
+                       print('---> itemID ' + itemID.toString());
+                      }),
+                  CupertinoPopoverMenuItem(
+                      leading: Image.asset(
+                        'assets/images/icon_invite_drive.png',
+                        width: 18,
+                        height: 18,
+                      ),
+                      child: Text(
+                        "邀请试驾",
+                        style:
+                            TextStyle(color: Color(0xffFFFFFF), fontSize: 16.0),
+                      ),
+                      onItemClick: (itemID) {
+                       print('---> itemID ' + itemID.toString());
+                      })
+                ],
+              );
+            });
+  }
+
 }
