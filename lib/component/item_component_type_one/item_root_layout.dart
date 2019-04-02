@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/base/widget/base_stateful_widget.dart';
+import 'package:flutter_sample/component/item_component_type_two/item_title.dart';
 import './item_title.dart';
 import './item_center.dart';
 import './item_foot.dart';
 import '../../style/style.dart' as styles;
 
-class ItemRootLayout extends StatefulWidget {
+class ItemRootLayout extends BaseStatefullWidget {
   final int index;
   ItemRootLayout(this.index);
   @override
@@ -24,7 +26,7 @@ class ItemRootLayoutImp extends State<ItemRootLayout> {
             children: <Widget>[
               new ItemTitleView(
                   "https://avatars3.githubusercontent.com/u/9019351?s=460&v=4",
-                  "王亟亟阿米达",
+                  "王亟亟阿米达 " + index.toString(),
                   _initImageData(this.index)),
               new ItemCenterView("完美CP|解析蔚来ES6用词感应电机组合",
                   "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2186723599,2334303247&fm=26&gp=0.jpg"),
@@ -35,7 +37,8 @@ class ItemRootLayoutImp extends State<ItemRootLayout> {
                         width: 1.0,
                         color: styles.ComponentStyle.UNDER_LINE_COLOR),
                     insets: EdgeInsets.fromLTRB(0, 10, 0, 10)),
-              )
+              ),
+              renderTypeTwo(this.index),
             ],
           )));
 
@@ -51,6 +54,16 @@ class ItemRootLayoutImp extends State<ItemRootLayout> {
     map2['value'] = "247";
     data.add(map2);
     return data;
+  }
+
+  Widget renderTypeTwo(int index) {
+    if (index % 3 == 0) {
+      return new ItemTitleTypeTwo('ES8/ES6最新政策&邀请试驾', () {
+        showToast('ES8/ES6最新政策&邀请试驾');
+      });
+    } else {
+      return new Container();
+    }
   }
 
   //构建不同的角色状态

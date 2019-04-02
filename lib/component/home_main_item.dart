@@ -51,7 +51,7 @@ class HomeMainItemState extends State<HomeMainItem> {
         //子项为滑动切换的各个容器
         children: <Widget>[
           new ListView.builder(
-              itemCount: 3,
+              itemCount: 5,
               itemBuilder: (BuildContext context, int position) {
                 return buildItem(context, position);
               }),

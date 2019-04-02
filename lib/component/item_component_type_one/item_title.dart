@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/base/widget/base_stateless_widget.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 import '../../style/style.dart' as styles;
 
-class ItemTitleView extends StatelessWidget {
+class ItemTitleView extends BaseStatelessWidget {
   final String userHeaderImg; //头像地址
   final String username; //用户名
   final int userIdentity; //用户类型标示
