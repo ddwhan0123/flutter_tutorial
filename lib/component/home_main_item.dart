@@ -5,7 +5,7 @@ import 'package:flutter_sample/page/home/top_experience.dart';
 import 'package:flutter_sample/page/home/top_information.dart';
 import 'package:flutter_sample/page/home/top_moment.dart';
 import '../style/style.dart' as styles;
-import './item_component_type_one/item_root_layout.dart';
+import './item_component_type_one/item_one_root_layout.dart';
 
 class HomeMainItem extends StatefulWidget {
   @override

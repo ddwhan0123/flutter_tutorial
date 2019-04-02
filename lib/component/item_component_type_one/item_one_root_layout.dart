@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/widget/base_stateful_widget.dart';
 import 'package:flutter_sample/component/item_component_type_two/item_title.dart';
+import 'package:flutter_sample/component/item_component_type_two/item_two_root_layout.dart';
 import './item_title.dart';
 import './item_center.dart';
 import './item_foot.dart';
@@ -58,9 +59,7 @@ class ItemRootLayoutImp extends State<ItemRootLayout> {
 
   Widget renderTypeTwo(int index) {
     if (index % 3 == 0) {
-      return new ItemTitleTypeTwo('ES8/ES6最新政策&邀请试驾', () {
-        showToast('ES8/ES6最新政策&邀请试驾');
-      });
+      return new ItemRootTypeTwo();
     } else {
       return new Container();
     }
