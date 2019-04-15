@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sample/component/home_main_item.dart';
 import 'package:flutter_sample/page/friend/FriendComponent.dart';
 import 'package:flutter_sample/page/gift/MallComponent.dart';
-import 'package:flutter_sample/page/home/top_experience.dart';
-import 'package:flutter_sample/page/home/top_information.dart';
-import 'package:flutter_sample/page/me/MeComponent.dart';
+import 'package:flutter_sample/page/me/me_page_root.dart';
 import 'package:flutter_sample/page/my_car/MyCarComponent.dart';
 
 class BottomNavigationWidget extends StatefulWidget {

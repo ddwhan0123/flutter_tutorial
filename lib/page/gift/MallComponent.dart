@@ -15,7 +15,12 @@ class MallComponent extends BaseStatefulPage {
 class MallComponentState extends BasePageState {
   @override
   Widget build(BuildContext context) {
-    return new Text("MallComponentComponentState");
+    return SafeArea(
+      child: SizedBox.expand(
+          child: Column(
+        children: <Widget>[],
+      )),
+    );
   }
 
   @override
