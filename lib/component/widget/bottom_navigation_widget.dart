@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/component/home_main_item.dart';
+import 'package:flutter_sample/page/friend/FriendComponent.dart';
+import 'package:flutter_sample/page/gift/MallComponent.dart';
 import 'package:flutter_sample/page/home/top_experience.dart';
 import 'package:flutter_sample/page/home/top_information.dart';
-import 'package:flutter_sample/page/home/top_moment.dart';
+import 'package:flutter_sample/page/me/MeComponent.dart';
+import 'package:flutter_sample/page/my_car/MyCarComponent.dart';
 
 class BottomNavigationWidget extends StatefulWidget {
   @override
@@ -101,10 +104,10 @@ class BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   initList() {
     list
       ..add(HomeMainItem())
-      ..add(MomentComponent())
-      ..add(ExperienceComponent())
-      ..add(InformationComponent())
-      ..add(InformationComponent());
+      ..add(FriendComponent())
+      ..add(MyCarComponent())
+      ..add(MallComponent())
+      ..add(MeComponent());
 
     imgesData
       ..add('assets/images/personal_home')
