@@ -21,7 +21,7 @@ class MeComponentState extends BasePageState {
         child: SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: Column(
-        children: <Widget>[new MePageTitle(), new DividingLine()],
+        children: <Widget>[new MePageTitle(), ],
       ),
     ));
   }

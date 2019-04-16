@@ -5,4 +5,5 @@ class ComponentStyle {
   static const FOOT_TEXT_COLOR=const Color(0xFF696D7F);
   static const UNDER_LINE_COLOR=const Color(0xFFCDCED4);
   static const DIVIVIDING_LINE_COLOR=const Color(0xFFF0F1F2);
+  static const APP_MAIN_COLOR=const Color(0xFF00BCBC);
 }
