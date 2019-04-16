@@ -17,7 +17,7 @@ class MePageTitle extends BaseStatelessWidget {
     return new Card(
         elevation: 4.0,
         clipBehavior: Clip.antiAlias,
-        margin: EdgeInsets.only(top: 20,bottom: 20),
+        margin: EdgeInsets.only(top: 22,bottom: 24),
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(8.0))),
         child: new Container(
