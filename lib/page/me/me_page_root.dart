@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
 import 'package:flutter_sample/component/widget/common/dividing_line.dart';
+import 'package:flutter_sample/page/me/me_page_list.dart';
 import 'package:flutter_sample/page/me/me_page_title.dart';
 
 class MeComponent extends BaseStatefulPage {
@@ -21,7 +22,7 @@ class MeComponentState extends BasePageState {
         child: SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: Column(
-        children: <Widget>[new MePageTitle(), ],
+        children: <Widget>[new MePageTitle(), new MePageList()],
       ),
     ));
   }

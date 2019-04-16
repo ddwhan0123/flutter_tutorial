@@ -15,13 +15,14 @@ class MePageTitle extends BaseStatelessWidget {
   //头部为卡皮
   Widget renderCard(ScreenUtil screenInstance) {
     return new Card(
-        elevation: 8.0,
-        margin: EdgeInsets.only(top: 6,bottom: 20),
+        elevation: 4.0,
+        clipBehavior: Clip.antiAlias,
+        margin: EdgeInsets.only(top: 20,bottom: 20),
         shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(6.0))),
+            borderRadius: BorderRadius.all(Radius.circular(8.0))),
         child: new Container(
           padding: EdgeInsets.only(left: 15, right: 15),
-          height: 160,
+          height: 170,
           width: ScreenUtil.screenWidth,
           child: new Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,8 +41,8 @@ class MePageTitle extends BaseStatelessWidget {
       onTap: () => (showToast("点击了 用户头像")),
       child: new Container(
         padding: EdgeInsets.only(
-            top: screenInstance.setHeight(26),
-            bottom: screenInstance.setHeight(26)),
+            top: screenInstance.setHeight(30),
+            bottom: screenInstance.setHeight(30)),
         child: new Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
@@ -86,15 +87,15 @@ class MePageTitle extends BaseStatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 new Container(
-                    margin: EdgeInsets.only(bottom: 4),
+                    margin: EdgeInsets.only(bottom: 6),
                     child: new Text(infoCount,
                         style: new TextStyle(
                             color: styles.ComponentStyle.APP_MAIN_COLOR,
-                            fontSize: screenInstance.setSp(28)))),
+                            fontSize: screenInstance.setSp(30)))),
                 new Text(infoTitle,
                     style: new TextStyle(
                         color: styles.ComponentStyle.TITLE_TEXT_COLOR,
-                        fontSize: screenInstance.setSp(28))),
+                        fontSize: screenInstance.setSp(30))),
               ],
             )));
   }
