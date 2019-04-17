@@ -66,23 +66,20 @@ class MePageTitle extends BaseStatelessWidget {
               height: screenInstance.setWidth(100),
               width: screenInstance.setWidth(100),
             ),
-            new Container(
-                width: double.infinity,
-                margin: EdgeInsets.only(left: 16),
-                child: new Column(
-                  children: <Widget>[
-                    new Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        new Text('111'),
-                        new Text('111'),
-                        new Text('111'),
-                        new Text('111'),
-                      ],
-                    ),
-                    new Text("111")
-                  ],
-                ))
+            new Expanded(
+              child: new Column(
+                children: <Widget>[
+                  new Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      new Text('111'),
+                    ],
+                  ),
+                  new Text('111'),
+                  new Text("111")
+                ],
+              ),
+            )
           ],
         ),
       ),
