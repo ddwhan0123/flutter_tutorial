@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
-import 'package:flutter_sample/component/widget/common/dividing_line.dart';
 import 'package:flutter_sample/page/me/me_page_list.dart';
 import 'package:flutter_sample/page/me/me_page_title.dart';
 
@@ -16,6 +15,8 @@ class MeComponent extends BaseStatefulPage {
 }
 
 class MeComponentState extends BasePageState {
+  var isLogin = false;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,7 +24,15 @@ class MeComponentState extends BasePageState {
       physics: new ClampingScrollPhysics(), //禁用回弹
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: Column(
-        children: <Widget>[new MePageTitle(), new MePageList()],
+        children: <Widget>[
+          new MePageTitle(isLogin, () {
+            debugPrint('--->头部点击回调');
+            setState(() {
+              isLogin = !isLogin;
+            });
+          }),
+          new MePageList()
+        ],
       ),
     ));
   }

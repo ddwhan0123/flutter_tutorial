@@ -5,6 +5,9 @@ import 'package:flutter_sample/utils/screen_util.dart';
 import '../../style/style.dart' as styles;
 
 class MePageTitle extends BaseStatelessWidget {
+  final bool isLogin;
+  final Function titleClick; //头部点击
+  MePageTitle(this.isLogin, this.titleClick);
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
@@ -17,7 +20,7 @@ class MePageTitle extends BaseStatelessWidget {
     return new Card(
         elevation: 4.0,
         clipBehavior: Clip.antiAlias,
-        margin: EdgeInsets.only(top: 22,bottom: 24),
+        margin: EdgeInsets.only(top: 22, bottom: 24),
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(8.0))),
         child: new Container(
@@ -37,8 +40,59 @@ class MePageTitle extends BaseStatelessWidget {
 
   //头像签到
   Widget renderUserHeader(ScreenUtil screenInstance) {
+    //是否登陆显示2种不同的 ui
+    if (isLogin) {
+      return renderLoginUser(screenInstance);
+    } else {
+      return renderLogoutUser(screenInstance);
+    }
+  }
+
+  onTitleClick() {
+    showToast("点击了 用户头像");
+    this.titleClick();
+  }
+
+  //登陆的样式
+  Widget renderLoginUser(ScreenUtil screenInstance) {
     return new GestureDetector(
-      onTap: () => (showToast("点击了 用户头像")),
+      onTap: () => (onTitleClick()),
+      child: new Container(
+        child: new Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            new Image.asset(
+              'assets/images/icon_me_header.png',
+              height: screenInstance.setWidth(100),
+              width: screenInstance.setWidth(100),
+            ),
+            new Container(
+                width: double.infinity,
+                margin: EdgeInsets.only(left: 16),
+                child: new Column(
+                  children: <Widget>[
+                    new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        new Text('111'),
+                        new Text('111'),
+                        new Text('111'),
+                        new Text('111'),
+                      ],
+                    ),
+                    new Text("111")
+                  ],
+                ))
+          ],
+        ),
+      ),
+    );
+  }
+
+  //未登陆的样式
+  Widget renderLogoutUser(ScreenUtil screenInstance) {
+    return new GestureDetector(
+      onTap: () => (onTitleClick()),
       child: new Container(
         padding: EdgeInsets.only(
             top: screenInstance.setHeight(30),
