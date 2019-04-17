@@ -20,6 +20,7 @@ class MeComponentState extends BasePageState {
   Widget build(BuildContext context) {
     return SafeArea(
         child: SingleChildScrollView(
+      physics: new ClampingScrollPhysics(), //禁用回弹
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: Column(
         children: <Widget>[new MePageTitle(), new MePageList()],

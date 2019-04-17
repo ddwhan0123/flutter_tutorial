@@ -13,6 +13,7 @@ class ItemViewPagerTypeTwo extends BaseStatelessWidget {
     return Container(
       height: 230,
       child: new ListView.builder(
+          physics: new ClampingScrollPhysics(), //禁用回弹
           controller: new ScrollController(keepScrollOffset: false),
           scrollDirection: Axis.horizontal,
           itemCount: 4,
