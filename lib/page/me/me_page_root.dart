@@ -16,6 +16,7 @@ class MeComponent extends BaseStatefulPage {
 
 class MeComponentState extends BasePageState {
   var isLogin = false;
+  var isCheck = false;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +26,15 @@ class MeComponentState extends BasePageState {
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: Column(
         children: <Widget>[
-          new MePageTitle(isLogin, () {
+          new MePageTitle(isLogin, isCheck, () {
             debugPrint('--->头部点击回调');
             setState(() {
               isLogin = !isLogin;
+            });
+          }, () {
+            debugPrint('--->签到点击回调');
+            setState(() {
+              isCheck = !isCheck;
             });
           }),
           new MePageList()

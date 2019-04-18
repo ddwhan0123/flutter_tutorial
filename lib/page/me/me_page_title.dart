@@ -6,8 +6,10 @@ import '../../style/style.dart' as styles;
 
 class MePageTitle extends BaseStatelessWidget {
   final bool isLogin;
+  final bool isCheck;
   final Function titleClick; //头部点击
-  MePageTitle(this.isLogin, this.titleClick);
+  final Function checkClick; //签到点击
+  MePageTitle(this.isLogin, this.isCheck, this.titleClick, this.checkClick);
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
@@ -17,15 +19,17 @@ class MePageTitle extends BaseStatelessWidget {
 
   //头部为卡皮
   Widget renderCard(ScreenUtil screenInstance) {
+    //登录状态右对齐
+    var rightPadding = isLogin ? 0.0 : 15.0;
     return new Card(
         elevation: 4.0,
         clipBehavior: Clip.antiAlias,
-        margin: EdgeInsets.only(top: 22, bottom: 24),
+        margin: EdgeInsets.only(top: 20, bottom: 20),
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(8.0))),
         child: new Container(
-          padding: EdgeInsets.only(left: 15, right: 15),
-          height: 170,
+          padding: EdgeInsets.only(left: 15, right: rightPadding),
+          height: 180,
           width: ScreenUtil.screenWidth,
           child: new Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,35 +57,119 @@ class MePageTitle extends BaseStatelessWidget {
     this.titleClick();
   }
 
+  onCheck() {
+    showToast("点击了 签到");
+    this.checkClick();
+  }
+
   //登陆的样式
   Widget renderLoginUser(ScreenUtil screenInstance) {
-    return new GestureDetector(
-      onTap: () => (onTitleClick()),
-      child: new Container(
-        child: new Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            new Image.asset(
-              'assets/images/icon_me_header.png',
-              height: screenInstance.setWidth(100),
-              width: screenInstance.setWidth(100),
+    return new Container(
+      padding: EdgeInsets.only(
+          top: screenInstance.setHeight(30),
+          bottom: screenInstance.setHeight(30)),
+      child: new Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          new Container(
+              height: screenInstance.setWidth(120),
+              width: screenInstance.setWidth(120),
+              decoration: new BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: new DecorationImage(
+                      fit: BoxFit.fill,
+                      image: new NetworkImage(
+                          'https://avatars3.githubusercontent.com/u/9019351?s=460&v=4')))),
+          new Expanded(
+            child: new Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    new Container(
+                      margin: EdgeInsets.only(left: 16),
+                      child: new Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          new Row(
+                            children: <Widget>[
+                              new Text("你好hahah",
+                                  style: TextStyle(
+                                    fontSize: screenInstance.setSp(28),
+                                    color:
+                                        styles.ComponentStyle.TITLE_TEXT_COLOR,
+                                  )),
+                              _renderIconImg(screenInstance)
+                            ],
+                          ),
+                          new Text("认证：认证用户",
+                              style: TextStyle(
+                                fontSize: screenInstance.setSp(24),
+                                color: styles.ComponentStyle.FOOT_TEXT_COLOR,
+                              ))
+                        ],
+                      ),
+                    ),
+                    new GestureDetector(
+                        onTap: () => (onCheck()),
+                        child: Container(
+                          height: screenInstance.setWidth(70),
+                          width: screenInstance.setWidth(160),
+                          child: Center(
+                            child: Text(
+                              isCheck ? '已经签到1天' : '点击签到',
+                              style: TextStyle(
+                                  fontSize: screenInstance.setSp(24),
+                                  color: Colors.white),
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(isCheck
+                                  ? "assets/images/sign_in_bg.9.png"
+                                  : "assets/images/sign_out_bg.9.png"),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        )) //右侧的签到按钮
+                  ],
+                ),
+                new Container(
+                    margin: EdgeInsets.only(left: 16, top: 4),
+                    child: new Row(
+                      children: <Widget>[
+                        new Image.asset(
+                          'assets/images/personal_integrate.png',
+                          height: screenInstance.setWidth(54),
+                          width: screenInstance.setWidth(54),
+                        ),
+                        new Text(
+                          '12332积分',
+                          style: TextStyle(
+                            fontSize: screenInstance.setSp(26),
+                            color: styles.ComponentStyle.APP_MAIN_COLOR,
+                          ),
+                        ),
+                        new GestureDetector(
+                          child: new Container(
+                            child: new Image.asset(
+                              'assets/images/personal_go.png',
+                              height: screenInstance.setWidth(24),
+                              width: screenInstance.setWidth(24),
+                            ),
+                            margin: EdgeInsets.only(left: 5),
+                          ),
+                          onTap: () {
+                            showToast('查看积分');
+                          },
+                        )
+                      ],
+                    ))
+              ],
             ),
-            new Expanded(
-              child: new Column(
-                children: <Widget>[
-                  new Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      new Text('111'),
-                    ],
-                  ),
-                  new Text('111'),
-                  new Text("111")
-                ],
-              ),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
@@ -99,8 +187,8 @@ class MePageTitle extends BaseStatelessWidget {
           children: <Widget>[
             new Image.asset(
               'assets/images/icon_me_header.png',
-              height: screenInstance.setWidth(100),
-              width: screenInstance.setWidth(100),
+              height: screenInstance.setWidth(120),
+              width: screenInstance.setWidth(120),
             ),
             new Container(
               child: new Text("注册/登陆",
@@ -110,6 +198,28 @@ class MePageTitle extends BaseStatelessWidget {
               margin: EdgeInsets.only(left: 16),
             )
           ],
+        ),
+      ),
+    );
+  }
+
+  /*
+  渲染右侧Icon
+  */
+  Widget _renderIconImg(ScreenUtil screenInstance) {
+    return new Container(
+      margin: EdgeInsets.fromLTRB(screenInstance.setWidth(14), 0, 0, 0),
+      width: screenInstance.setWidth(50),
+      height: screenInstance.setHeight(24),
+      decoration: new BoxDecoration(
+        image: new DecorationImage(
+          image: new AssetImage("assets/images/user_tips_img.jpg"),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
+        border: new Border.all(
+          color: Colors.black,
+          width: 1.0,
         ),
       ),
     );
