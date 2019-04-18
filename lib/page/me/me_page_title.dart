@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/widget/base_stateless_widget.dart';
+import 'package:flutter_sample/bean/home/me/user_info.dart';
 import 'package:flutter_sample/component/widget/common/dividing_line.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 import '../../style/style.dart' as styles;
@@ -7,9 +8,11 @@ import '../../style/style.dart' as styles;
 class MePageTitle extends BaseStatelessWidget {
   final bool isLogin;
   final bool isCheck;
+  final UserInfo userInfo;
   final Function titleClick; //头部点击
   final Function checkClick; //签到点击
-  MePageTitle(this.isLogin, this.isCheck, this.titleClick, this.checkClick);
+  MePageTitle(this.isLogin, this.isCheck, this.titleClick, this.checkClick,
+      this.userInfo);
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
@@ -78,8 +81,7 @@ class MePageTitle extends BaseStatelessWidget {
                   shape: BoxShape.circle,
                   image: new DecorationImage(
                       fit: BoxFit.fill,
-                      image: new NetworkImage(
-                          'https://avatars3.githubusercontent.com/u/9019351?s=460&v=4')))),
+                      image: new NetworkImage(userInfo.userHeaderImg)))),
           new Expanded(
             child: new Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,7 +96,7 @@ class MePageTitle extends BaseStatelessWidget {
                         children: <Widget>[
                           new Row(
                             children: <Widget>[
-                              new Text("你好hahah",
+                              new Text(userInfo.userName,
                                   style: TextStyle(
                                     fontSize: screenInstance.setSp(28),
                                     color:
@@ -118,9 +120,11 @@ class MePageTitle extends BaseStatelessWidget {
                           width: screenInstance.setWidth(160),
                           child: Center(
                             child: Text(
-                              isCheck ? '已经签到1天' : '点击签到',
+                              isCheck
+                                  ? '已签到' + userInfo.signNumeber + '天'
+                                  : '点击签到',
                               style: TextStyle(
-                                  fontSize: screenInstance.setSp(24),
+                                  fontSize: screenInstance.setSp(20),
                                   color: Colors.white),
                             ),
                           ),
@@ -136,7 +140,7 @@ class MePageTitle extends BaseStatelessWidget {
                   ],
                 ),
                 new Container(
-                    margin: EdgeInsets.only(left: 16, top: 4),
+                    margin: EdgeInsets.only(left: 14),
                     child: new Row(
                       children: <Widget>[
                         new Image.asset(
@@ -145,7 +149,7 @@ class MePageTitle extends BaseStatelessWidget {
                           width: screenInstance.setWidth(54),
                         ),
                         new Text(
-                          '12332积分',
+                          userInfo.userScore + '积分',
                           style: TextStyle(
                             fontSize: screenInstance.setSp(26),
                             color: styles.ComponentStyle.APP_MAIN_COLOR,

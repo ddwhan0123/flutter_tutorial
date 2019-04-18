@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
+import 'package:flutter_sample/bean/home/me/user_info.dart';
 import 'package:flutter_sample/page/me/me_page_list.dart';
 import 'package:flutter_sample/page/me/me_page_title.dart';
 
@@ -36,7 +37,7 @@ class MeComponentState extends BasePageState {
             setState(() {
               isCheck = !isCheck;
             });
-          }),
+          }, initUserData()),
           new MePageList()
         ],
       ),
@@ -51,5 +52,16 @@ class MeComponentState extends BasePageState {
   @override
   String trackPageEndMethod() {
     return null;
+  }
+
+  UserInfo initUserData() {
+    UserInfo userInfo = new UserInfo(
+        userName: '王亟鸡阿米达',
+        userType: "认证用户",
+        userScore: "10086",
+        signNumeber: "20",
+        userHeaderImg:
+            'https://avatars3.githubusercontent.com/u/9019351?s=460&v=4');
+    return userInfo;
   }
 }
