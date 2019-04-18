@@ -22,7 +22,7 @@ class ItemTitleTypeTwo extends BaseStatelessWidget {
       child: new Container(
         margin: EdgeInsets.only(
             top: _screenInstance.setHeight(24),
-            bottom: _screenInstance.setHeight(14)),
+            bottom: _screenInstance.setHeight(24)),
         child: new Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[renderLeft(_screenInstance), renderRight()],
