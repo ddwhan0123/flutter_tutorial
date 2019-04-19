@@ -20,8 +20,12 @@ class ItemRootTypeThree extends BaseStatelessWidget {
           child: Column(
             children: <Widget>[
               renderHeader(),
-              new ItemCenterTypeThree(homeTypeThreeBean.momentTitleString),
-              renderFoot()],
+              new ItemCenterTypeThree(homeTypeThreeBean.momentTitleString,
+                  homeTypeThreeBean.tipsString, () {
+                showToast('点击话题');
+              }, homeTypeThreeBean.photoWall),
+              renderFoot()
+            ],
           ),
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
         ),
@@ -42,7 +46,7 @@ class ItemRootTypeThree extends BaseStatelessWidget {
     Map map1 = new Map();
     map1['resPath'] =
         "assets/images/details_page_reading_quantity_iconxxhdpi.png";
-    map1['value'] = homeTypeThreeBean.momentReadingVolume+'万';
+    map1['value'] = homeTypeThreeBean.momentReadingVolume + '万';
     data.add(map1);
     Map map2 = new Map();
     map2['resPath'] = "assets/images/comment.png";

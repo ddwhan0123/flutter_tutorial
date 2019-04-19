@@ -26,7 +26,7 @@ class ItemCenterViewImp extends State<ItemCenterView> {
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     var screenInstance = ScreenUtil.getInstance();
-    centerImgSize = (ScreenUtil.screenWidthDp); //根据屏幕宽度适配
+    centerImgSize = (ScreenUtil.screenWidthDp-50); //根据屏幕宽度适配
 
     return Container(
       width: ScreenUtil.screenWidth,

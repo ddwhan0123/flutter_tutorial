@@ -81,15 +81,26 @@ class ItemRootLayoutImp extends State<ItemRootLayout> {
   }
 
   HomeTypeThreeBean initTypeThreeData() {
+
+     List<String> imgList = new List();
+    imgList.add(
+        'https://cdn-app.nio.com/MER/2019/4/4/0f48ee01-4f89-4eea-833d-8137a8218002_M.jpg');
+    imgList.add(
+        'https://cdn-app.nio.com/MER/2019/4/4/2b9d60ad-4fc6-43e8-94ed-87bba97a726a_M.jpg');
+         imgList.add(
+        'https://cdn-app.nio.com/MER/2019/4/4/23ae2d47-f9a2-4b0d-9817-1693779b7a93_M.jpg');
+    imgList.add(
+        'https://cdn-app.nio.com/MER/2019/4/4/d2f27402-22cf-4693-bc5d-ac56f8bfc9a0_M.jpg');
     return new HomeTypeThreeBean(
         momentCreateTime: '04-11',
         momentReadingVolume: '3.3',
-        monentCommentCount:'123',
+        monentCommentCount: '123',
         username: '王鸡鸡',
-        momentTitleString:'公众日第一天，咱们作为首批车主Fellow也正式上岗！报名那天就说要减肥，一想到如果我减肥成功',
+        momentTitleString: '公众日第一天，咱们作为首批车主Fellow也正式上岗！报名那天就说要减肥，一想到如果我减肥成功',
         userHeaderImg:
             "https://avatars3.githubusercontent.com/u/9019351?s=460&v=4",
-            userIdentity:0);
+        userIdentity: 0,
+        tipsString: '#我在车展当Fellow#',photoWall: imgList);
   }
 
   //构建不同的角色状态
