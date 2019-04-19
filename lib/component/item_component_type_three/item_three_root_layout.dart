@@ -4,6 +4,7 @@ import 'package:flutter_sample/bean/home/main/item_type_three.dart';
 import 'package:flutter_sample/component/item_component_type_one/item_foot.dart';
 import 'package:flutter_sample/component/item_component_type_one/item_title.dart';
 import 'package:flutter_sample/component/item_component_type_three/item_three_center.dart';
+import 'package:flutter_sample/component/widget/common/dividing_line.dart';
 
 /*
 * 上文字，下4公格
@@ -29,6 +30,9 @@ class ItemRootTypeThree extends BaseStatelessWidget {
           ),
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
         ),
+        new Container(
+          padding: EdgeInsets.symmetric(horizontal: 25.0),
+          child: new DividingLine(),)
       ],
     );
   }

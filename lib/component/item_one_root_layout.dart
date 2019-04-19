@@ -6,6 +6,7 @@ import 'package:flutter_sample/component/item_component_type_one/item_foot.dart'
 import 'package:flutter_sample/component/item_component_type_one/item_title.dart';
 import 'package:flutter_sample/component/item_component_type_three/item_three_root_layout.dart';
 import 'package:flutter_sample/component/item_component_type_two/item_two_root_layout.dart';
+import 'package:flutter_sample/component/widget/common/dividing_line.dart';
 import '../style/style.dart' as styles;
 
 class ItemRootLayout extends BaseStatefullWidget {
@@ -35,13 +36,7 @@ class ItemRootLayoutImp extends State<ItemRootLayout> {
                   new ItemCenterView("完美CP|解析蔚来ES6用词感应电机组合",
                       "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2186723599,2334303247&fm=26&gp=0.jpg"),
                   new ItemFootView(this._initFootData()),
-                  new Container(
-                    decoration: new UnderlineTabIndicator(
-                        borderSide: BorderSide(
-                            width: 1.0,
-                            color: styles.ComponentStyle.UNDER_LINE_COLOR),
-                        insets: EdgeInsets.fromLTRB(0, 10, 0, 10)),
-                  ),
+                  new DividingLine(),
                 ],
               )),
           new ItemRootTypeThree(initTypeThreeData()),

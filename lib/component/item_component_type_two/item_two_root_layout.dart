@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/widget/base_stateless_widget.dart';
 import 'package:flutter_sample/component/item_component_type_two/item_title.dart';
 import 'package:flutter_sample/component/item_component_type_two/item_view_pager.dart';
+import 'package:flutter_sample/component/widget/common/dividing_line.dart';
 
 class ItemRootTypeTwo extends BaseStatelessWidget {
   final String title;
@@ -17,7 +18,8 @@ class ItemRootTypeTwo extends BaseStatelessWidget {
           new ItemTitleTypeTwo(this.title, () {
             showToast(this.title);
           }),
-          ItemViewPagerTypeTwo(this.imgList)
+          ItemViewPagerTypeTwo(this.imgList),
+          new DividingLine()
         ],
       ),
     );

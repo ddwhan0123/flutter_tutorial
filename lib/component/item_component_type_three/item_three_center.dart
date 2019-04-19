@@ -44,7 +44,7 @@ class ItemCenterTypeThree extends BaseStatelessWidget {
             child: new Text(this.tipsString,
                 style: new TextStyle(
                     color: styles.ComponentStyle.APP_MAIN_COLOR,
-                    fontSize: screenInstance.setSp(26))),
+                    fontSize: screenInstance.setSp(32))),
           ),
         ),
         new Padding(
@@ -57,7 +57,7 @@ class ItemCenterTypeThree extends BaseStatelessWidget {
             textAlign: TextAlign.left,
             style: new TextStyle(
                 color: styles.ComponentStyle.TITLE_TEXT_COLOR,
-                fontSize: screenInstance.setSp(30)),
+                fontSize: screenInstance.setSp(32)),
           ),
         )
       ],

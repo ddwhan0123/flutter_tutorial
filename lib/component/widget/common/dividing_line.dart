@@ -13,7 +13,8 @@ class DividingLine extends BaseStatelessWidget {
     return Container(
       color: styles.ComponentStyle.DIVIVIDING_LINE_COLOR,
       width: ScreenUtil.screenWidth,
-      height: 2.0,
+      height: 1.0,
+      margin: EdgeInsets.only(bottom: 10),
     );
   }
 }
