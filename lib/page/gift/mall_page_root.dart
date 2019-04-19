@@ -16,11 +16,18 @@ class MallComponentState extends BasePageState {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SizedBox.expand(
-          child: Column(
-        children: <Widget>[],
-      )),
-    );
+        child: SizedBox.expand(
+      child: RefreshIndicator(
+        onRefresh: _onRefresh,
+        child: new Text("data"),
+      ),
+    ));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
   }
 
   @override
@@ -31,5 +38,18 @@ class MallComponentState extends BasePageState {
   @override
   String trackPageEndMethod() {
     return null;
+  }
+
+  //异步操作模仿进页面跑网
+  Future getData() async {
+    await Future.delayed(Duration(seconds: 2), () {
+      showToast('mall获取数据成功');
+    });
+  }
+
+  Future<Null> _onRefresh() async {
+    await Future.delayed(Duration(seconds: 3), () {
+      showToast('获取数据成功');
+    });
   }
 }

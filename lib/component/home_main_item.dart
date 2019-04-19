@@ -85,7 +85,7 @@ class HomeMainItemState extends BaseState<HomeMainItem> {
   //异步操作模仿进页面跑网
   Future getData() async {
     await Future.delayed(Duration(seconds: 2), () {
-      showToast('获取数据成功');
+      showToast('home获取数据成功');
     });
   }
 

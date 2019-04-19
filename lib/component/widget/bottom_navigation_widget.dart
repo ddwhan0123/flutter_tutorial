@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/component/home_main_item.dart';
 import 'package:flutter_sample/page/friend/FriendComponent.dart';
-import 'package:flutter_sample/page/gift/MallComponent.dart';
+import 'package:flutter_sample/page/gift/mall_page_root.dart';
 import 'package:flutter_sample/page/me/me_page_root.dart';
 import 'package:flutter_sample/page/my_car/MyCarComponent.dart';
 
