@@ -18,7 +18,7 @@ var pageOneHandler = new Handler(
   String colorHex = params["color_hex"]?.first;
   Color color = new Color(0xFFFFFFFF);
   String result = params["result"]?.first;
-  if (colorHex != null && colorHex.length > 0) {
+  if (colorHex != null && colorHex.length > 0) { 
     color = new Color(ColorHelpers.fromHexString(colorHex));
   }
   return new PageOneComponent( message: message, color: color, result: result);
