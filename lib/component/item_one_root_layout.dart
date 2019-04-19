@@ -83,9 +83,10 @@ class ItemRootLayoutImp extends State<ItemRootLayout> {
   HomeTypeThreeBean initTypeThreeData() {
     return new HomeTypeThreeBean(
         momentCreateTime: '04-11',
-        momentReadingVolume: '50',
-        monentCommentCount:'2.1',
+        momentReadingVolume: '3.3',
+        monentCommentCount:'123',
         username: '王鸡鸡',
+        momentTitleString:'公众日第一天，咱们作为首批车主Fellow也正式上岗！报名那天就说要减肥，一想到如果我减肥成功',
         userHeaderImg:
             "https://avatars3.githubusercontent.com/u/9019351?s=460&v=4",
             userIdentity:0);

@@ -75,7 +75,7 @@ class ItemCenterViewImp extends State<ItemCenterView> {
   Widget _renderViewGroup(ScreenUtil screenInstance, BuildContext context) {
     return GestureDetector(
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 500),
+        duration: Duration(milliseconds: 300),
         foregroundDecoration: BoxDecoration(
           color: isDown ? Colors.white.withOpacity(0.5) : Colors.transparent,
         ),
