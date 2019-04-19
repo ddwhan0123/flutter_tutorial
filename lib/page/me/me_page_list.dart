@@ -12,7 +12,7 @@ class MePageList extends BaseStatefullWidget {
   }
 }
 
-class MePageListState extends NioBaseState<MePageList> {
+class MePageListState extends BaseState<MePageList> {
   var dataList = [
     '我的蔚来值',
     '我的订单',

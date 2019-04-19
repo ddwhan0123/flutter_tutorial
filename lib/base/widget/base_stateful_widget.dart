@@ -30,7 +30,7 @@ abstract class BaseStatefullWidget extends StatefulWidget {
         toastLength: toastLength);
   }
 
-abstract class NioBaseState<T extends StatefulWidget> extends State {
+abstract class BaseState<T extends StatefulWidget> extends State {
   trackPageBegin({String eventID, Map data}) {
     BaseMethodImp.instance.trackPageBegin(eventID: eventID, data: data);
   }

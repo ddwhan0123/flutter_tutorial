@@ -7,7 +7,6 @@ import 'package:flutter_sample/component/item_component_type_one/item_title.dart
 import 'package:flutter_sample/component/item_component_type_three/item_three_root_layout.dart';
 import 'package:flutter_sample/component/item_component_type_two/item_two_root_layout.dart';
 import 'package:flutter_sample/component/widget/common/dividing_line.dart';
-import '../style/style.dart' as styles;
 
 class ItemRootLayout extends BaseStatefullWidget {
   final int index;

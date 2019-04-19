@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/base/page/base_stateful_page.dart';
+import 'package:flutter_sample/base/widget/base_stateful_widget.dart';
 import 'package:flutter_sample/component/item_one_root_layout.dart';
 import 'package:flutter_sample/component/widget/pop/home_popover.dart';
 import 'package:flutter_sample/component/widget/pop/home_popover_menu_item.dart';
@@ -7,12 +9,14 @@ import 'package:flutter_sample/page/home/top_information.dart';
 import 'package:flutter_sample/page/home/top_moment.dart';
 import '../style/style.dart' as styles;
 
-class HomeMainItem extends StatefulWidget {
+class HomeMainItem extends BaseStatefulPage {
   @override
   State<StatefulWidget> createState() => HomeMainItemState();
 }
 
-class HomeMainItemState extends State<HomeMainItem> {
+class HomeMainItemState extends BaseState<HomeMainItem> {
+  List list = new List(); //列表要展示的数据
+
   //头部tab数据源
   final List<Container> _topTabs = <Container>[
     //主动给了个宽度，防止子控件内部挤压
@@ -50,11 +54,15 @@ class HomeMainItemState extends State<HomeMainItem> {
       body: new TabBarView(
         //子项为滑动切换的各个容器
         children: <Widget>[
-          new ListView.builder(
-              itemCount: 5,
-              itemBuilder: (BuildContext context, int position) {
-                return buildItem(context, position);
-              }),
+          new Container(
+              child: RefreshIndicator(
+            onRefresh: _onRefresh,
+            child: new ListView.builder(
+                itemCount: 5,
+                itemBuilder: (BuildContext context, int position) {
+                  return buildItem(context, position);
+                }),
+          )),
           new MomentComponent(),
           new ExperienceComponent(),
           new InformationComponent(),
@@ -71,6 +79,20 @@ class HomeMainItemState extends State<HomeMainItem> {
   @override
   void initState() {
     super.initState();
+    getData();
+  }
+
+  //异步操作模仿进页面跑网
+  Future getData() async {
+    await Future.delayed(Duration(seconds: 2), () {
+      showToast('获取数据成功');
+    });
+  }
+
+  Future<Null> _onRefresh() async {
+    await Future.delayed(Duration(seconds: 3), () {
+      showToast('获取数据成功');
+    });
   }
 
   //ListView的Item
@@ -88,7 +110,7 @@ class HomeMainItemState extends State<HomeMainItem> {
         insets: EdgeInsets.fromLTRB(12, 0, 12, 5));
   }
 
-    /*
+  /*
   * 渲染右上角的按钮
   * **/
   Container renderRight() {
@@ -134,79 +156,74 @@ class HomeMainItemState extends State<HomeMainItem> {
 
   Widget _buildPopoverButton() {
     return CupertinoPopoverButton(
-            popoverColor: Color(0xFF696D7F),
-            child: Center(
-              child: Image.asset(
-                'assets/images/home_add_icon.png',
-                width: 18,
-                height: 18,
-              ),
-            ),
-            popoverBuild: (context) {
-              return CupertinoPopoverMenuList(
-                children: <Widget>[
-                  CupertinoPopoverMenuItem(
-                      itemID: 0,
-                      leading: Image.asset(
-                        'assets/images/icon_send_moment.png',
-                        width: 18,
-                        height: 18,
-                      ),
-                      child: Text(
-                        "发此刻",
-                        style:
-                            TextStyle(color: Color(0xffFFFFFF), fontSize: 16.0),
-                      ),
-                      onItemClick: (itemID) {
-                      print('---> itemID ' + itemID.toString());
-                      }),
-                  CupertinoPopoverMenuItem(
-                      itemID: 1,
-                      leading: Image.asset(
-                        'assets/images/icon_new_group_chat.png',
-                        width: 18,
-                        height: 18,
-                      ),
-                      child: Text(
-                        "建群聊",
-                        style:
-                            TextStyle(color: Color(0xffFFFFFF), fontSize: 16.0),
-                      ),
-                      onItemClick: (itemID) {
-                        print('---> itemID ' + itemID.toString());
-                      }),
-                  CupertinoPopoverMenuItem(
-                      itemID: 2,
-                      leading: Image.asset(
-                        'assets/images/icon_scan_code.png',
-                        width: 18,
-                        height: 18,
-                      ),
-                      child: Text(
-                        "扫一扫",
-                        style:
-                            TextStyle(color: Color(0xffFFFFFF), fontSize: 16.0),
-                      ),
-                      onItemClick: (itemID) {
-                       print('---> itemID ' + itemID.toString());
-                      }),
-                  CupertinoPopoverMenuItem(
-                      leading: Image.asset(
-                        'assets/images/icon_invite_drive.png',
-                        width: 18,
-                        height: 18,
-                      ),
-                      child: Text(
-                        "邀请试驾",
-                        style:
-                            TextStyle(color: Color(0xffFFFFFF), fontSize: 16.0),
-                      ),
-                      onItemClick: (itemID) {
-                       print('---> itemID ' + itemID.toString());
-                      })
-                ],
-              );
-            });
+        popoverColor: Color(0xFF696D7F),
+        child: Center(
+          child: Image.asset(
+            'assets/images/home_add_icon.png',
+            width: 18,
+            height: 18,
+          ),
+        ),
+        popoverBuild: (context) {
+          return CupertinoPopoverMenuList(
+            children: <Widget>[
+              CupertinoPopoverMenuItem(
+                  itemID: 0,
+                  leading: Image.asset(
+                    'assets/images/icon_send_moment.png',
+                    width: 18,
+                    height: 18,
+                  ),
+                  child: Text(
+                    "发此刻",
+                    style: TextStyle(color: Color(0xffFFFFFF), fontSize: 16.0),
+                  ),
+                  onItemClick: (itemID) {
+                    print('---> itemID ' + itemID.toString());
+                  }),
+              CupertinoPopoverMenuItem(
+                  itemID: 1,
+                  leading: Image.asset(
+                    'assets/images/icon_new_group_chat.png',
+                    width: 18,
+                    height: 18,
+                  ),
+                  child: Text(
+                    "建群聊",
+                    style: TextStyle(color: Color(0xffFFFFFF), fontSize: 16.0),
+                  ),
+                  onItemClick: (itemID) {
+                    print('---> itemID ' + itemID.toString());
+                  }),
+              CupertinoPopoverMenuItem(
+                  itemID: 2,
+                  leading: Image.asset(
+                    'assets/images/icon_scan_code.png',
+                    width: 18,
+                    height: 18,
+                  ),
+                  child: Text(
+                    "扫一扫",
+                    style: TextStyle(color: Color(0xffFFFFFF), fontSize: 16.0),
+                  ),
+                  onItemClick: (itemID) {
+                    print('---> itemID ' + itemID.toString());
+                  }),
+              CupertinoPopoverMenuItem(
+                  leading: Image.asset(
+                    'assets/images/icon_invite_drive.png',
+                    width: 18,
+                    height: 18,
+                  ),
+                  child: Text(
+                    "邀请试驾",
+                    style: TextStyle(color: Color(0xffFFFFFF), fontSize: 16.0),
+                  ),
+                  onItemClick: (itemID) {
+                    print('---> itemID ' + itemID.toString());
+                  })
+            ],
+          );
+        });
   }
-
 }
