@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
+import 'package:flutter_sample/utils/screen_util.dart';
 
 class MallComponent extends BaseStatefulPage {
   //构造函数传参
@@ -13,13 +14,15 @@ class MallComponent extends BaseStatefulPage {
 }
 
 class MallComponentState extends BasePageState {
+  var barOpacity = 0.0; //默认不透明
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: SizedBox.expand(
       child: RefreshIndicator(
         onRefresh: _onRefresh,
-        child: new Text("data"),
+        child: renderAppBar(),
       ),
     ));
   }
@@ -28,6 +31,11 @@ class MallComponentState extends BasePageState {
   void initState() {
     super.initState();
     getData();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -51,5 +59,68 @@ class MallComponentState extends BasePageState {
     await Future.delayed(Duration(seconds: 3), () {
       showToast('获取数据成功');
     });
+  }
+
+  //半透明appbar
+  Widget renderAppBar() {
+    var barHeight = AppBar().preferredSize.height;
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+    var screenInstance = ScreenUtil.getInstance();
+
+    return NotificationListener(
+        onNotification: (ScrollNotification notification) {
+          debugPrint('---> 进度 ' +
+              notification.metrics.pixels.toString() +
+              '   ' +
+              (ScreenUtil.screenWidthDp - 50).toString());
+          if (notification.metrics.pixels > 0) {
+            if (notification.metrics.pixels < (ScreenUtil.screenWidthDp - 50)) {
+              setState(() {
+                barOpacity = notification.metrics.pixels /
+                    (ScreenUtil.screenWidthDp - 50);
+              });
+            }
+          }
+        },
+        child: new Stack(
+          children: <Widget>[
+            ListView.builder(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              shrinkWrap: true,
+              itemCount: 20,
+              itemBuilder: (BuildContext context, int position) {
+                return renderitem(context, position, screenInstance);
+              },
+            ),
+            new Opacity(
+              child: new Container(
+                alignment: Alignment.centerRight,
+                width: ScreenUtil.screenWidth,
+                color: Colors.white,
+                height: barHeight,
+              ),
+              opacity: barOpacity,
+            ),
+            new Positioned(
+                child: new Container(
+                  child: new Image.asset(
+                    'assets/images/icon_shoppingcar.png',
+                    height: screenInstance.setWidth(44),
+                    width: screenInstance.setWidth(44),
+                  ),
+                ),
+                right: 25,
+                top: (barHeight / 4)),
+          ],
+        ));
+  }
+
+  Widget renderitem(
+      BuildContext context, int position, ScreenUtil screenInstance) {
+    return new Container(
+      child: new Text('data  ' + position.toString()),
+      color: position == 0 ? Colors.blue : Colors.transparent,
+      height: (ScreenUtil.screenWidthDp - 50),
+    );
   }
 }
