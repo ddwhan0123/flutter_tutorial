@@ -66,13 +66,8 @@ class MallComponentState extends BasePageState {
     var barHeight = AppBar().preferredSize.height;
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     var screenInstance = ScreenUtil.getInstance();
-
     return NotificationListener(
         onNotification: (ScrollNotification notification) {
-          debugPrint('---> 进度 ' +
-              notification.metrics.pixels.toString() +
-              '   ' +
-              (ScreenUtil.screenWidthDp - 50).toString());
           if (notification.metrics.pixels > 0) {
             if (notification.metrics.pixels < (ScreenUtil.screenWidthDp - 50)) {
               setState(() {
@@ -85,7 +80,6 @@ class MallComponentState extends BasePageState {
         child: new Stack(
           children: <Widget>[
             ListView.builder(
-              padding: EdgeInsets.symmetric(horizontal: 25),
               shrinkWrap: true,
               itemCount: 20,
               itemBuilder: (BuildContext context, int position) {
