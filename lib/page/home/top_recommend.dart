@@ -12,7 +12,7 @@ class RecommendComponent extends BaseStatefulPage {
   }
 }
 
-class RecommendComponentState extends BasePageState {
+class RecommendComponentState extends BasePageState with AutomaticKeepAliveClientMixin{
   @override
   Widget build(BuildContext context) {
     return new Text("RecommendComponentState");
@@ -27,4 +27,7 @@ class RecommendComponentState extends BasePageState {
   String trackPageEndMethod() {
     return null;
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
