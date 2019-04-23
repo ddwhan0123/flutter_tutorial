@@ -1,3 +1,4 @@
+//leftNavigation和banner公用同一种bean
 class MallBanner {
   String type;
   int sortKey;
