@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
+import 'package:flutter_sample/page/gift/mall_page_banner.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 
 class MallComponent extends BaseStatefulPage {
@@ -15,6 +16,7 @@ class MallComponent extends BaseStatefulPage {
 
 class MallComponentState extends BasePageState {
   var barOpacity = 0.0; //默认不透明
+  var array=['banner','bigItem','gridGoodsItem'];
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +83,7 @@ class MallComponentState extends BasePageState {
           children: <Widget>[
             ListView.builder(
               shrinkWrap: true,
-              itemCount: 20,
+              itemCount: 3,
               itemBuilder: (BuildContext context, int position) {
                 return renderitem(context, position, screenInstance);
               },
@@ -112,9 +114,19 @@ class MallComponentState extends BasePageState {
   Widget renderitem(
       BuildContext context, int position, ScreenUtil screenInstance) {
     return new Container(
-      child: new Text('data  ' + position.toString()),
-      color: position == 0 ? Colors.blue : Colors.transparent,
+      child: getItemContent(array[position]),
       height: (ScreenUtil.screenWidthDp - 50),
     );
+  }
+
+  Widget getItemContent(String type) {
+    switch (type) {
+      case 'banner':
+        return new MallBannerComponent();
+         case 'bigItem':
+        return new Text("data");
+        case 'gridGoodsItem':
+        return new Text("12121211");
+    }
   }
 }
