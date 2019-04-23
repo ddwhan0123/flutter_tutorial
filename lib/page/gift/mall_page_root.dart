@@ -114,11 +114,16 @@ class MallComponentState extends BasePageState {
               opacity: barOpacity,
             ),
             new Positioned(
-                child: new Container(
-                  child: new Image.asset(
-                    'assets/images/icon_shoppingcar.png',
-                    height: screenInstance.setWidth(44),
-                    width: screenInstance.setWidth(44),
+                child: new GestureDetector(
+                  onTap: (){
+                    showToast("点击购物车");
+                  },
+                  child: new Container(
+                    child: new Image.asset(
+                      'assets/images/icon_shoppingcar.png',
+                      height: screenInstance.setWidth(44),
+                      width: screenInstance.setWidth(44),
+                    ),
                   ),
                 ),
                 right: 25,

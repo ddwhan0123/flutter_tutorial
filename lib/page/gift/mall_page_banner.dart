@@ -29,7 +29,10 @@ class MallBannerComponentState extends BaseState<MallBannerComponent> {
   @override
   Widget build(BuildContext context) {
     if (widget.bannerData.length == 0) {
-      return new Container();
+      return new Image.asset(
+        'assets/images/banner_default_img.png',
+        fit: BoxFit.fill,
+      );
     }
     return new Swiper(
       itemBuilder: (BuildContext context, int index) {
@@ -38,6 +41,9 @@ class MallBannerComponentState extends BaseState<MallBannerComponent> {
           fit: BoxFit.fill,
         );
       },
+      onTap: ((int index) {
+        showToast(widget.bannerData[index].goto.link);
+      }),
       itemCount: widget.bannerData.length,
       pagination: new SwiperPagination(
           alignment: Alignment.bottomCenter,
