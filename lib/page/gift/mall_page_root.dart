@@ -19,7 +19,7 @@ class MallComponent extends BaseStatefulPage {
 
 class MallComponentState extends BasePageState {
   var barOpacity = 0.0; //默认不透明
-  var array = ['banner', 'bigItem', 'gridGoodsItem'];
+  var array = ['banner', 'bigItem', 'gridGoodsItem', 'leftNavigation'];
   MallBanner mallBanner;
   List<Data> bannerDatas = [];
   @override
@@ -115,8 +115,8 @@ class MallComponentState extends BasePageState {
             ),
             new Positioned(
                 child: new GestureDetector(
-                  onTap: (){
-                    showToast("点击购物车");
+                  onTap: () {
+                    showToast('点击了购物车');
                   },
                   child: new Container(
                     child: new Image.asset(
@@ -144,6 +144,8 @@ class MallComponentState extends BasePageState {
     switch (type) {
       case 'banner':
         return new MallBannerComponent(bannerData: this.bannerDatas);
+      case 'leftNavigation':
+        return new Text("data");
       case 'bigItem':
         return new Text("data");
       case 'gridGoodsItem':
