@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import '../../style/style.dart' as styles;
 
 class WarmPainter extends BasePainter {
   WarmPainter(PageIndicator widget, double page, int index, Paint paint)
@@ -72,26 +73,21 @@ class NonePainter extends BasePainter {
   }
 }
 
-class NioPainter extends BasePainter {
+class NioPainter extends NioBasePainter {
   NioPainter(PageIndicator widget, double page, int index, Paint paint)
       : super(widget, page, index, paint);
 
   @override
   void draw(Canvas canvas, double space, double size, double radius) {
-    double progress = page - index;
     double secondOffset = index == widget.count - 1
         ? radius
         : radius + ((index + 1) * (size + space));
-
-    if (progress > 0.5) {
-      canvas.drawCircle(new Offset(secondOffset, radius), radius, _paint);
-    } else {
-      canvas.drawCircle(new Offset(radius + (index * (size + space)), radius),
-          radius, _paint);
-    }
+    _paint.color = styles.ComponentStyle.APP_MAIN_COLOR;
+    _paint.strokeWidth = 3;
+    canvas.drawLine(new Offset(secondOffset - 8, radius),
+        new Offset(secondOffset + 8, radius), _paint);
   }
 }
-
 
 class SlidePainter extends BasePainter {
   SlidePainter(PageIndicator widget, double page, int index, Paint paint)
@@ -214,6 +210,54 @@ abstract class BasePainter extends CustomPainter {
       }
       canvas.drawCircle(
           new Offset(i * (size + space) + radius, radius), radius, _paint);
+    }
+
+    double page = this.page;
+    if (page < index) {
+      page = 0.0;
+    }
+    _paint.color = widget.activeColor;
+    draw(canvas, space, size, radius);
+  }
+
+  @override
+  bool shouldRepaint(BasePainter oldDelegate) {
+    return oldDelegate.page != page;
+  }
+}
+
+abstract class NioBasePainter extends BasePainter {
+  final PageIndicator widget;
+  final double page;
+  final int index;
+  final Paint _paint;
+
+  double lerp(double begin, double end, double progress) {
+    return begin + (end - begin) * progress;
+  }
+
+  NioBasePainter(this.widget, this.page, this.index, this._paint)
+      : super(widget, page, index, _paint);
+
+  void draw(Canvas canvas, double space, double size, double radius);
+
+  bool _shouldSkip(int index) {
+    return false;
+  }
+  //double secondOffset = index == widget.count-1 ? radius : radius + ((index + 1) * (size + space));
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    _paint.color = widget.color;
+    double space = widget.space;
+    double size = widget.size;
+    double radius = size / 2;
+    for (int i = 0, c = widget.count; i < c; ++i) {
+      if (_shouldSkip(i)) {
+        continue;
+      }
+      canvas.drawLine(new Offset(i * (size + space) + radius - 8, radius),
+          new Offset(i * (size + space) + radius + 8, radius), _paint);
     }
 
     double page = this.page;
@@ -373,4 +417,3 @@ class PageIndicator extends StatefulWidget {
     return new _PageIndicatorState();
   }
 }
-
