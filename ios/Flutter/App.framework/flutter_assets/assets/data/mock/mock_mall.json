@@ -1,0 +1,35 @@
+{
+    "type":"banner",
+    "sortKey":1,
+    "data":[
+        {
+            "img":"https://cdn-app-test.nio.com/MER/2019/1/22/30a27682-d4fe-4e3e-8b52-290ed85b759a.jpg",
+            "goto":{
+                "type":"goods_detail",
+                "link":"nio://mall/item?version=2&id=TG20180824000005"
+            }
+        },
+        {
+            "img":"https://cdn-app-test.nio.com/MER/2019/1/22/8cc38cda-5b67-47f9-abb2-d763e2660780.jpg",
+            "goto":{
+                "type":"goods_detail",
+                "link":"nio://mall/item?version=2&id=XG20181013000004"
+            }
+        },
+        {
+            "img":"https://cdn-app-test.nio.com/MER/2019/3/19/9ce3a4e3-1db2-4cda-a5ea-7e7b291a0f3c_M.jpg",
+            "goto":{
+                "type":"article",
+                "link":"nio://mall/article?pageCode=W201810240001"
+            }
+        },
+        {
+            "img":"https://cdn-app-test.nio.com/MER/2019/3/19/ab0f49c6-0182-4ad2-8054-4dfc235b4555_M.jpg",
+            "goto":{
+                "type":"article",
+                "link":"nio://mall/article?pageCode=W201810230014"
+            }
+        }
+    ],
+    "haveLine":false
+}

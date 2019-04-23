@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
+import 'package:flutter_sample/bean/home/mall/mall_banner.dart';
 import 'package:flutter_sample/page/gift/mall_page_banner.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 
@@ -16,8 +19,9 @@ class MallComponent extends BaseStatefulPage {
 
 class MallComponentState extends BasePageState {
   var barOpacity = 0.0; //默认不透明
-  var array=['banner','bigItem','gridGoodsItem'];
-
+  var array = ['banner', 'bigItem', 'gridGoodsItem'];
+  MallBanner mallBanner;
+  List<Data> bannerDatas = [];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -32,6 +36,7 @@ class MallComponentState extends BasePageState {
   @override
   void initState() {
     super.initState();
+    mallBanner = new MallBanner(data: []);
     getData();
   }
 
@@ -52,7 +57,18 @@ class MallComponentState extends BasePageState {
 
   //异步操作模仿进页面跑网
   Future getData() async {
-    await Future.delayed(Duration(seconds: 2), () {
+    await Future.delayed(Duration(seconds: 1), () {
+      Future<String> loadString = DefaultAssetBundle.of(context)
+          .loadString("assets/data/mock/mock_mall.json");
+      loadString.then((String value) {
+        var datas = json.decode(value);
+        MallBanner banner = MallBanner.fromJson(datas);
+        setState(() {
+          mallBanner = banner;
+          bannerDatas = banner.data;
+        });
+      });
+
       showToast('mall获取数据成功');
     });
   }
@@ -122,10 +138,10 @@ class MallComponentState extends BasePageState {
   Widget getItemContent(String type) {
     switch (type) {
       case 'banner':
-        return new MallBannerComponent();
-         case 'bigItem':
+        return new MallBannerComponent(bannerData: this.bannerDatas);
+      case 'bigItem':
         return new Text("data");
-        case 'gridGoodsItem':
+      case 'gridGoodsItem':
         return new Text("12121211");
     }
   }

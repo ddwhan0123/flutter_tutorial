@@ -5,7 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 
 abstract class BaseStatefullWidget extends StatefulWidget {
-  
+   const BaseStatefullWidget({ Key key }) : super(key: key);
   trackPageBegin({String eventID, Map data}) {
     BaseMethodImp.instance.trackPageBegin(eventID: eventID, data: data);
   }
@@ -30,7 +30,8 @@ abstract class BaseStatefullWidget extends StatefulWidget {
         toastLength: toastLength);
   }
 
-abstract class BaseState<T extends StatefulWidget> extends State {
+abstract class BaseState<T extends StatefulWidget> extends State<T> {
+
   trackPageBegin({String eventID, Map data}) {
     BaseMethodImp.instance.trackPageBegin(eventID: eventID, data: data);
   }

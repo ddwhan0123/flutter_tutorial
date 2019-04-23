@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/widget/base_stateful_widget.dart';
+import 'package:flutter_sample/bean/home/mall/mall_banner.dart';
 import 'package:flutter_sample/component/widget/page_indicator.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class MallBannerComponent extends BaseStatefullWidget {
+  final List<Data> bannerData;
+  const MallBannerComponent({Key key, this.bannerData}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return new MallBannerComponentState();
   }
 }
 
-class MallBannerComponentState extends BaseState {
-  var array = [
-    'https://cdn-app-test.nio.com/MER/2019/1/22/30a27682-d4fe-4e3e-8b52-290ed85b759a.jpg',
-    'https://cdn-app-test.nio.com/MER/2019/3/19/ab0f49c6-0182-4ad2-8054-4dfc235b4555_M.jpg',
-    'https://cdn-app-test.nio.com/MER/2019/3/19/9ce3a4e3-1db2-4cda-a5ea-7e7b291a0f3c_M.jpg',
-    'https://cdn-app-test.nio.com/MER/2019/3/19/9ce3a4e3-1db2-4cda-a5ea-7e7b291a0f3c_M.jpg'
-  ];
-
+class MallBannerComponentState extends BaseState<MallBannerComponent> {
   @override
   void initState() {
     super.initState();
@@ -25,19 +22,23 @@ class MallBannerComponentState extends BaseState {
 
   @override
   void didUpdateWidget(MallBannerComponent oldWidget) {
+    print(oldWidget);
     super.didUpdateWidget(oldWidget);
   }
 
   @override
   Widget build(BuildContext context) {
+    if (widget.bannerData.length == 0) {
+      return new Container();
+    }
     return new Swiper(
       itemBuilder: (BuildContext context, int index) {
         return new Image.network(
-          array[index],
+          widget.bannerData[index].img,
           fit: BoxFit.fill,
         );
       },
-      itemCount: 4,
+      itemCount: widget.bannerData.length,
       pagination: new SwiperPagination(
           alignment: Alignment.bottomCenter,
           builder: new SwiperCustomPagination(
@@ -46,7 +47,7 @@ class MallBannerComponentState extends BaseState {
               layout: PageIndicatorLayout.NIO,
               size: 10.0,
               space: 15.0,
-              count: 4,
+              count: widget.bannerData.length,
               controller: config.pageController,
             );
           })),

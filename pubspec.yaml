@@ -41,6 +41,7 @@ flutter:
   assets:
   - assets/
   - assets/images/
+  - assets/data/mock/mock_mall.json
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
