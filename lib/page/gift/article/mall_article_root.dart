@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/widget/base_stateless_widget.dart';
 import 'package:flutter_sample/bean/home/mall/mall_main.dart';
-import 'package:flutter_sample/page/gift/article/mall_article_title.dart';
+import 'package:flutter_sample/page/gift/article/mall_article_item.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 
 class MallArticleComponent extends BaseStatelessWidget {
@@ -25,7 +25,7 @@ class MallArticleComponent extends BaseStatelessWidget {
 
   Widget renderitem(
       BuildContext context, int position, ScreenUtil screenInstance) {
-    return MallArticleTitleComponent(
+    return MallArticleItemComponent(
         mallArticleBean: mallArticleBeans[position]);
   }
 }
