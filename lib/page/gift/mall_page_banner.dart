@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/widget/base_stateful_widget.dart';
-import 'package:flutter_sample/bean/home/mall/mall_banner.dart';
+import 'package:flutter_sample/bean/home/mall/mall_main.dart';
 import 'package:flutter_sample/component/widget/page_indicator.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class MallBannerComponent extends BaseStatefullWidget {
-  final List<Data> bannerData;
-  const MallBannerComponent({Key key, this.bannerData}) : super(key: key);
+  final List<MallBannerBean> bannerData;
+  MallBannerComponent({Key key, this.bannerData}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {

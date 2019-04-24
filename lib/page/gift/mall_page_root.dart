@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
-import 'package:flutter_sample/bean/home/mall/mall_banner.dart';
+import 'package:flutter_sample/bean/home/mall/mall_main.dart';
 import 'package:flutter_sample/page/gift/mall_page_banner.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 
@@ -20,8 +20,7 @@ class MallComponent extends BaseStatefulPage {
 class MallComponentState extends BasePageState {
   var barOpacity = 0.0; //默认不透明
   var array = ['banner', 'bigItem', 'gridGoodsItem', 'leftNavigation'];
-  MallBanner mallBanner;
-  List<Data> bannerDatas = [];
+  List<ResultData> resultDataList; //大页面主数据
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -36,7 +35,6 @@ class MallComponentState extends BasePageState {
   @override
   void initState() {
     super.initState();
-    mallBanner = new MallBanner(data: []);
     getData();
   }
 
@@ -62,10 +60,9 @@ class MallComponentState extends BasePageState {
           .loadString("assets/data/mock/mock_mall.json");
       loadString.then((String value) {
         var datas = json.decode(value);
-        MallBanner banner = MallBanner.fromJson(datas);
+        resultDataList = MallMainBean.fromJson(datas).resultData;
         setState(() {
-          mallBanner = banner;
-          bannerDatas = banner.data;
+          resultDataList = resultDataList;
         });
       });
 
@@ -99,7 +96,7 @@ class MallComponentState extends BasePageState {
           children: <Widget>[
             ListView.builder(
               shrinkWrap: true,
-              itemCount: 3,
+              itemCount: resultDataList != null ? resultDataList.length : 0,
               itemBuilder: (BuildContext context, int position) {
                 return renderitem(context, position, screenInstance);
               },
@@ -135,15 +132,18 @@ class MallComponentState extends BasePageState {
   Widget renderitem(
       BuildContext context, int position, ScreenUtil screenInstance) {
     return new Container(
-      child: getItemContent(array[position]),
+      child: getItemContent(
+          resultDataList != null ? resultDataList[position].type : '',
+          position),
       height: (ScreenUtil.screenWidthDp - 50),
     );
   }
 
-  Widget getItemContent(String type) {
+  Widget getItemContent(String type, int position) {
     switch (type) {
       case 'banner':
-        return new MallBannerComponent(bannerData: this.bannerDatas);
+        return new MallBannerComponent(
+            bannerData: resultDataList[position].data);
       case 'leftNavigation':
         return new Text("data");
       case 'bigItem':
