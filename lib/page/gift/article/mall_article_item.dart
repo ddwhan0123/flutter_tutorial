@@ -30,86 +30,90 @@ class MallArticleItemComponent extends BaseStatelessWidget {
 
   Widget renderTitle(ScreenUtil screenInstance) {
     return Container(
-      margin: EdgeInsets.only(
-        left: 25,
-        right: 25,
-        top: 12,
-      ),
-      child: GestureDetector(child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Container(
-              height: screenInstance.setWidth(80),
-              width: screenInstance.setWidth(80),
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image:
-                          NetworkImage(mallArticleBean.imUser.headImageUrl)))),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        margin: EdgeInsets.only(
+          left: 25,
+          right: 25,
+          top: 12,
+        ),
+        child: GestureDetector(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                  height: screenInstance.setWidth(80),
+                  width: screenInstance.setWidth(80),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: NetworkImage(
+                              mallArticleBean.imUser.headImageUrl)))),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.only(left: 16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Container(
+                          margin: EdgeInsets.only(left: 16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text(mallArticleBean.imUser.nick,
+                              Row(
+                                children: <Widget>[
+                                  Text(mallArticleBean.imUser.nick,
+                                      style: TextStyle(
+                                        fontSize: screenInstance.setSp(28),
+                                        color: styles
+                                            .ComponentStyle.TITLE_TEXT_COLOR,
+                                      )),
+                                  _renderIconImg(screenInstance)
+                                ],
+                              ),
+                              Text("",
                                   style: TextStyle(
-                                    fontSize: screenInstance.setSp(28),
+                                    fontSize: screenInstance.setSp(24),
                                     color:
-                                        styles.ComponentStyle.TITLE_TEXT_COLOR,
+                                        styles.ComponentStyle.FOOT_TEXT_COLOR,
                                   )),
-                              _renderIconImg(screenInstance)
                             ],
                           ),
-                          Text("",
-                              style: TextStyle(
-                                fontSize: screenInstance.setSp(24),
-                                color: styles.ComponentStyle.FOOT_TEXT_COLOR,
-                              )),
-                        ],
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        showToast('点击了关注');
-                      },
-                      child: Container(
-                        height: screenInstance.setWidth(60),
-                        width: screenInstance.setWidth(130),
-                        child: Center(
-                          child: Text(
-                            '关注',
-                            style: TextStyle(
-                                fontSize: screenInstance.setSp(24),
-                                color: styles.ComponentStyle.APP_MAIN_COLOR),
-                          ),
                         ),
-                        decoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20.0)),
-                            color: styles.ComponentStyle.MALL_FOCUS_BG),
-                      ) //右侧的签到按钮
-                          ,
-                    )
+                        GestureDetector(
+                          onTap: () {
+                            showToast('点击了关注');
+                          },
+                          child: Container(
+                            height: screenInstance.setWidth(60),
+                            width: screenInstance.setWidth(130),
+                            child: Center(
+                              child: Text(
+                                '关注',
+                                style: TextStyle(
+                                    fontSize: screenInstance.setSp(24),
+                                    color:
+                                        styles.ComponentStyle.APP_MAIN_COLOR),
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20.0)),
+                                color: styles.ComponentStyle.MALL_FOCUS_BG),
+                          ) //右侧的签到按钮
+                              ,
+                        )
+                      ],
+                    ),
                   ],
                 ),
-              ],
-            ),
-          )
-        ],
-      ),onTap: (){
-        showToast('跳转用户');
-      },)
-    );
+              )
+            ],
+          ),
+          onTap: () {
+            showToast('跳转用户');
+          },
+        ));
   }
 
   /*
@@ -141,7 +145,10 @@ class MallArticleItemComponent extends BaseStatelessWidget {
   Widget renderContent() {
     return Container(
       child: ItemCenterView(
-          mallArticleBean.title, mallArticleBean.articleMiniPicUrl),
+          mallArticleBean.title, mallArticleBean.articleMiniPicUrl,
+          onImageClick: (url) {
+        showToast(url);
+      }),
       margin: EdgeInsets.only(left: 25, right: 25),
     );
   }
