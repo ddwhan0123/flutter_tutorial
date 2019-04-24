@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
 import 'package:flutter_sample/bean/home/mall/mall_main.dart';
+import 'package:flutter_sample/page/gift/article/mall_article_root.dart';
 import 'package:flutter_sample/page/gift/mall_left_navigation.dart';
 import 'package:flutter_sample/page/gift/mall_page_banner.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
@@ -17,6 +18,7 @@ class MallComponent extends BaseStatefulPage {
     return new MallComponentState();
   }
 }
+
 class MallComponentState extends BasePageState {
   var barOpacity = 0.0; //默认不透明
   var array = ['banner', 'bigItem', 'gridGoodsItem', 'leftNavigation'];
@@ -141,13 +143,16 @@ class MallComponentState extends BasePageState {
   Widget getItemContent(String type, int position) {
     switch (type) {
       case 'banner':
-        return new MallBannerComponent(
+        return MallBannerComponent(
           bannerData: resultDataList[position].data,
-          haveLine:resultDataList[position].haveLine,
+          haveLine: resultDataList[position].haveLine,
         );
       case 'leftNavigation':
-        return new MallLeftNavigationComponent(
+        return MallLeftNavigationComponent(
             bannerData: resultDataList[position].data);
+      case 'article':
+        return MallArticleComponent(
+            mallArticleBeans: resultDataList[position].data);
       case 'bigItem':
         return new Text("data");
       case 'gridGoodsItem':

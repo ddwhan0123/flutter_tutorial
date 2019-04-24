@@ -14,7 +14,7 @@ class ItemViewPagerTypeTwo extends BaseStatelessWidget {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     var _screenInstance = ScreenUtil.getInstance();
     return Container(
-      height: 230,
+      height: imageWidth + (needBottomText ? 50.0 : 0),
       child: new ListView.builder(
           physics: new ClampingScrollPhysics(), //禁用回弹
           controller: new ScrollController(keepScrollOffset: false),
