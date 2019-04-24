@@ -2,21 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/widget/base_stateless_widget.dart';
 import 'package:flutter_sample/bean/home/mall/mall_main.dart';
 import 'package:flutter_sample/component/item_component_type_one/item_center.dart';
+import 'package:flutter_sample/component/widget/common/dividing_line.dart';
 import 'package:flutter_sample/utils/date_format.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 import '../../../style/style.dart' as styles;
 
 class MallArticleItemComponent extends BaseStatelessWidget {
-  const MallArticleItemComponent({Key key, this.mallArticleBean})
+  const MallArticleItemComponent(
+      {Key key, this.mallArticleBean, this.haveLine = false})
       : super(key: key);
   final MallArticleBean mallArticleBean;
+  final bool haveLine;
 
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[renderContent(), renderFoot()],
+      children: <Widget>[renderContent(), renderFoot(), renderLine()],
     );
   }
 
@@ -35,7 +38,7 @@ class MallArticleItemComponent extends BaseStatelessWidget {
   Widget renderFoot() {
     var screenInstance = ScreenUtil.getInstance();
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 25),
+      margin: EdgeInsets.only(left: 25, right: 25, top: 12, bottom: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -54,5 +57,12 @@ class MallArticleItemComponent extends BaseStatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget renderLine() {
+    if (null != this.haveLine && this.haveLine == true) {
+      return DividingLine(isCenter: true);
+    }
+    return Container();
   }
 }

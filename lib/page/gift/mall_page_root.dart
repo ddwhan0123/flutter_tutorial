@@ -141,18 +141,22 @@ class MallComponentState extends BasePageState {
   }
 
   Widget getItemContent(String type, int position) {
+    var haveLine = resultDataList[position].haveLine;
     switch (type) {
       case 'banner':
         return MallBannerComponent(
           bannerData: resultDataList[position].data,
-          haveLine: resultDataList[position].haveLine,
+          haveLine: haveLine,
         );
       case 'leftNavigation':
         return MallLeftNavigationComponent(
-            bannerData: resultDataList[position].data);
+          bannerData: resultDataList[position].data,
+          haveLine: haveLine,
+        );
       case 'article':
         return MallArticleComponent(
-            mallArticleBeans: resultDataList[position].data);
+            mallArticleBeans: resultDataList[position].data,
+            haveLine: haveLine);
       case 'bigItem':
         return new Text("data");
       case 'gridGoodsItem':

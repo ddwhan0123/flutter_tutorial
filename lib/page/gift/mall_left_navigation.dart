@@ -23,7 +23,7 @@ class MallLeftNavigationComponent extends BaseStatelessWidget {
       return Container(
         child: ItemViewPagerTypeTwo(list, needBottomText: false,imageWidth:130),
         margin: EdgeInsets.only(
-          left: 25,
+          left: 25,bottom: 30
         ),
       );
     }

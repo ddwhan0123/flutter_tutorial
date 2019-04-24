@@ -42,7 +42,7 @@ class ItemCenterViewImp extends State<ItemCenterView> {
                 textAlign: TextAlign.left,
                 style: new TextStyle(
                     color: styles.ComponentStyle.TITLE_TEXT_COLOR,
-                    fontSize: screenInstance.setSp(34)),
+                    fontSize: screenInstance.setSp(32)),
               ),
             ),
             _renderViewGroup(screenInstance, context),

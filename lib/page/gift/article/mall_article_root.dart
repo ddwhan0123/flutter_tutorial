@@ -5,9 +5,11 @@ import 'package:flutter_sample/page/gift/article/mall_article_item.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 
 class MallArticleComponent extends BaseStatelessWidget {
-  const MallArticleComponent({Key key, this.mallArticleBeans})
+  const MallArticleComponent(
+      {Key key, this.mallArticleBeans, this.haveLine = false})
       : super(key: key);
   final List<MallArticleBean> mallArticleBeans;
+  final bool haveLine;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,6 @@ class MallArticleComponent extends BaseStatelessWidget {
   Widget renderitem(
       BuildContext context, int position, ScreenUtil screenInstance) {
     return MallArticleItemComponent(
-        mallArticleBean: mallArticleBeans[position]);
+        mallArticleBean: mallArticleBeans[position], haveLine: this.haveLine);
   }
 }
