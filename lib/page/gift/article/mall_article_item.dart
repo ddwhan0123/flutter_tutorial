@@ -19,11 +19,114 @@ class MallArticleItemComponent extends BaseStatelessWidget {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[renderContent(), renderFoot(), renderLine()],
+      children: <Widget>[
+        renderTitle(ScreenUtil.getInstance()),
+        renderContent(),
+        renderFoot(),
+        renderLine()
+      ],
     );
   }
 
-  Widget renderTitle() {}
+  Widget renderTitle(ScreenUtil screenInstance) {
+    return Container(
+      margin: EdgeInsets.only(
+        left: 25,
+        right: 25,
+        top: 12,
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Container(
+              height: screenInstance.setWidth(80),
+              width: screenInstance.setWidth(80),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image:
+                          NetworkImage(mallArticleBean.imUser.headImageUrl)))),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(left: 16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              Text(mallArticleBean.imUser.nick,
+                                  style: TextStyle(
+                                    fontSize: screenInstance.setSp(28),
+                                    color:
+                                        styles.ComponentStyle.TITLE_TEXT_COLOR,
+                                  )),
+                              _renderIconImg(screenInstance)
+                            ],
+                          ),
+                          Text("",
+                              style: TextStyle(
+                                fontSize: screenInstance.setSp(24),
+                                color: styles.ComponentStyle.FOOT_TEXT_COLOR,
+                              )),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: screenInstance.setWidth(60),
+                      width: screenInstance.setWidth(130),
+                      child: Center(
+                        child: Text(
+                          '关注',
+                          style: TextStyle(
+                              fontSize: screenInstance.setSp(24),
+                              color: styles.ComponentStyle.APP_MAIN_COLOR),
+                        ),
+                      ),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                          color: styles.ComponentStyle.MALL_FOCUS_BG),
+                    ) //右侧的签到按钮
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  /*
+  渲染右侧Icon
+  */
+  Widget _renderIconImg(ScreenUtil screenInstance) {
+    if (mallArticleBean.isNioAuthorized) {
+      return Container(
+        margin: EdgeInsets.fromLTRB(screenInstance.setWidth(14), 0, 0, 0),
+        width: screenInstance.setWidth(50),
+        height: screenInstance.setHeight(24),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/user_tips_img.jpg"),
+            fit: BoxFit.cover,
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          border: Border.all(
+            color: Colors.black,
+            width: 1.0,
+          ),
+        ),
+      );
+    }
+    return Container();
+  }
 
   //中间图片这一行可以沿用首页
   Widget renderContent() {
@@ -47,11 +150,11 @@ class MallArticleItemComponent extends BaseStatelessWidget {
                   DateTime.fromMillisecondsSinceEpoch(
                       mallArticleBean.effectiveTime),
                   [mm, '-', dd]).toString(),
-              style: new TextStyle(
+              style: TextStyle(
                   color: styles.ComponentStyle.FOOT_TEXT_COLOR,
                   fontSize: screenInstance.setSp(24))),
           Text(mallArticleBean.readCount.toString() + ' 人浏览',
-              style: new TextStyle(
+              style: TextStyle(
                   color: styles.ComponentStyle.FOOT_TEXT_COLOR,
                   fontSize: screenInstance.setSp(24)))
         ],
