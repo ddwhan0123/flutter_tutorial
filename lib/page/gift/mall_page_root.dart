@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
 import 'package:flutter_sample/bean/home/mall/mall_main.dart';
+import 'package:flutter_sample/page/gift/mall_left_navigation.dart';
 import 'package:flutter_sample/page/gift/mall_page_banner.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 
@@ -16,7 +17,6 @@ class MallComponent extends BaseStatefulPage {
     return new MallComponentState();
   }
 }
-
 class MallComponentState extends BasePageState {
   var barOpacity = 0.0; //默认不透明
   var array = ['banner', 'bigItem', 'gridGoodsItem', 'leftNavigation'];
@@ -135,7 +135,6 @@ class MallComponentState extends BasePageState {
       child: getItemContent(
           resultDataList != null ? resultDataList[position].type : '',
           position),
-      height: (ScreenUtil.screenWidthDp - 50),
     );
   }
 
@@ -143,9 +142,12 @@ class MallComponentState extends BasePageState {
     switch (type) {
       case 'banner':
         return new MallBannerComponent(
-            bannerData: resultDataList[position].data);
+          bannerData: resultDataList[position].data,
+          haveLine:resultDataList[position].haveLine,
+        );
       case 'leftNavigation':
-        return new Text("data");
+        return new MallLeftNavigationComponent(
+            bannerData: resultDataList[position].data);
       case 'bigItem':
         return new Text("data");
       case 'gridGoodsItem':

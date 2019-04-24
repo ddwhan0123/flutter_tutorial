@@ -33,7 +33,7 @@
                     }
                 }
             ],
-            "haveLine": false
+            "haveLine": true
         },
         {
             "type": "leftNavigation",
