@@ -35,7 +35,7 @@ class MallArticleItemComponent extends BaseStatelessWidget {
         right: 25,
         top: 12,
       ),
-      child: Row(
+      child: GestureDetector(child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
@@ -78,28 +78,37 @@ class MallArticleItemComponent extends BaseStatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      height: screenInstance.setWidth(60),
-                      width: screenInstance.setWidth(130),
-                      child: Center(
-                        child: Text(
-                          '关注',
-                          style: TextStyle(
-                              fontSize: screenInstance.setSp(24),
-                              color: styles.ComponentStyle.APP_MAIN_COLOR),
+                    GestureDetector(
+                      onTap: () {
+                        showToast('点击了关注');
+                      },
+                      child: Container(
+                        height: screenInstance.setWidth(60),
+                        width: screenInstance.setWidth(130),
+                        child: Center(
+                          child: Text(
+                            '关注',
+                            style: TextStyle(
+                                fontSize: screenInstance.setSp(24),
+                                color: styles.ComponentStyle.APP_MAIN_COLOR),
+                          ),
                         ),
-                      ),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                          color: styles.ComponentStyle.MALL_FOCUS_BG),
-                    ) //右侧的签到按钮
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20.0)),
+                            color: styles.ComponentStyle.MALL_FOCUS_BG),
+                      ) //右侧的签到按钮
+                          ,
+                    )
                   ],
                 ),
               ],
             ),
           )
         ],
-      ),
+      ),onTap: (){
+        showToast('跳转用户');
+      },)
     );
   }
 
