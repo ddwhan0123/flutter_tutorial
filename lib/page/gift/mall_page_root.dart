@@ -8,6 +8,7 @@ import 'package:flutter_sample/page/gift/goods/mall_goods_root.dart';
 import 'package:flutter_sample/page/gift/mall_all_goods.dart';
 import 'package:flutter_sample/page/gift/mall_big_item.dart';
 import 'package:flutter_sample/page/gift/mall_left_navigation.dart';
+import 'package:flutter_sample/page/gift/mall_no_more.dart';
 import 'package:flutter_sample/page/gift/mall_page_banner.dart';
 import 'package:flutter_sample/page/gift/mall_summary.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
@@ -92,7 +93,8 @@ class MallComponentState extends BasePageState {
               notification.metrics.pixels <= (ScreenUtil.screenWidthDp - 50)) {
             if (notification.metrics.pixels < (ScreenUtil.screenWidthDp - 50)) {
               print((notification.metrics.pixels /
-                    (ScreenUtil.screenWidthDp - 50)).toString());
+                      (ScreenUtil.screenWidthDp - 50))
+                  .toString());
               setState(() {
                 barOpacity = notification.metrics.pixels /
                     (ScreenUtil.screenWidthDp - 50);
@@ -173,7 +175,14 @@ class MallComponentState extends BasePageState {
           haveLine: haveLine,
         );
       case 'allGoods':
-        return  MallAllGoodsComponent(data,haveLine: haveLine,);
+        return MallAllGoodsComponent(
+          data,
+          haveLine: haveLine,
+        );
+      case 'lastText':
+        return MallLastTextComponent(
+          data,
+        );
     }
   }
 }
