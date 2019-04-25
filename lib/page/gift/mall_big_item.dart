@@ -15,7 +15,7 @@ class MallBigItemComponent extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     var screenInstance = ScreenUtil.getInstance();
-    return Container(
+    return GestureDetector(child: Container(
       child: Column(
         children: <Widget>[
           Image.network(
@@ -61,7 +61,9 @@ class MallBigItemComponent extends BaseStatelessWidget {
         left: 25,
         right: 25,
       ),
-    );
+    ),onTap: (){
+      showToast(bean.spuCode);
+    },);
   }
 
   Widget renderLine() {
