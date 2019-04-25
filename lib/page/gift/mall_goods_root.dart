@@ -13,15 +13,18 @@ class MallGridGoodsComponent extends BaseStatelessWidget {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     var screenInstance = ScreenUtil.getInstance();
     return Container(
-      child: new GridView.count(
-          physics: NeverScrollableScrollPhysics(),
-          crossAxisCount: 2,
+      child: new GridView.builder(
+          itemCount: mallGoods.length,
           shrinkWrap: true,
-          crossAxisSpacing: 8.0,
-          childAspectRatio: 7 / 10,
-          children: new List.generate(mallGoods.length, (index) {
+          physics: NeverScrollableScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 8.0,
+            childAspectRatio: 7 / 10,
+          ),
+          itemBuilder: (BuildContext context, int index) {
             return renderGridItem(screenInstance, context, index);
-          })),
+          }),
       margin: EdgeInsets.only(left: 25, right: 25),
     );
   }
@@ -52,7 +55,7 @@ class MallGridGoodsComponent extends BaseStatelessWidget {
             ),
             Row(
               children: <Widget>[
-                 Image.asset(
+                Image.asset(
                   'assets/images/point_icon.png',
                   height: screenInstance.setWidth(32),
                   width: screenInstance.setWidth(32),
