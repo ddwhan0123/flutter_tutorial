@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/widget/base_stateless_widget.dart';
 import 'package:flutter_sample/bean/home/mall/mall_main.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
-import '../../../style/style.dart' as styles;
+import '../../style/style.dart' as styles;
 
 class MallGridGoodsComponent extends BaseStatelessWidget {
   final List<MallGoodsItemBean> mallGoods;
