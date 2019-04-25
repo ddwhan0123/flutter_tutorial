@@ -87,8 +87,11 @@ class MallComponentState extends BasePageState {
     var screenInstance = ScreenUtil.getInstance();
     return NotificationListener(
         onNotification: (ScrollNotification notification) {
-          if (notification.metrics.pixels > 0) {
+          if (notification.metrics.pixels > 0 &&
+              notification.metrics.pixels <= (ScreenUtil.screenWidthDp - 50)) {
             if (notification.metrics.pixels < (ScreenUtil.screenWidthDp - 50)) {
+              print((notification.metrics.pixels /
+                    (ScreenUtil.screenWidthDp - 50)).toString());
               setState(() {
                 barOpacity = notification.metrics.pixels /
                     (ScreenUtil.screenWidthDp - 50);
