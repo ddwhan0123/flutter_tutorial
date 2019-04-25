@@ -18,7 +18,7 @@ class MallGridGoodsComponent extends BaseStatelessWidget {
           crossAxisCount: 2,
           shrinkWrap: true,
           crossAxisSpacing: 10.0,
-          childAspectRatio: 7 / 9,
+          childAspectRatio: 7 / 10,
           children: new List.generate(mallGoods.length, (index) {
             return renderGridItem(screenInstance, context, index);
           })),
@@ -31,7 +31,6 @@ class MallGridGoodsComponent extends BaseStatelessWidget {
     MallGoodsItemBean bean = mallGoods[index];
     return GestureDetector(
       child: Container(
-        color: Colors.white,
         child: Column(
           //左对齐
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,12 +41,15 @@ class MallGridGoodsComponent extends BaseStatelessWidget {
               ),
               padding: EdgeInsets.only(bottom: 4),
             ),
-            Text(bean.title,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                    color: styles.ComponentStyle.TITLE_TEXT_COLOR,
-                    fontSize: screenInstance.setWidth(26))),
+            Padding(
+              padding: EdgeInsets.only(bottom: 2),
+              child: Text(bean.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      color: styles.ComponentStyle.TITLE_TEXT_COLOR,
+                      fontSize: screenInstance.setWidth(28))),
+            ),
             Row(
               children: <Widget>[
                 new Image.asset(

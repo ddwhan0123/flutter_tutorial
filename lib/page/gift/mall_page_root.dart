@@ -135,6 +135,7 @@ class MallComponentState extends BasePageState {
   Widget renderitem(
       BuildContext context, int position, ScreenUtil screenInstance) {
     return new Container(
+      color: Colors.white,
       child: getItemContent(
           resultDataList != null ? resultDataList[position].type : '',
           position),
