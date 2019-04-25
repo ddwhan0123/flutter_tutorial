@@ -1785,6 +1785,21 @@
                 }
             ],
             "haveLine":false
+        },{
+            "type":"allGoods",
+            "sortKey":14,
+            "data":{
+                "text":"全部商品"
+            },
+            "haveLine":false
+        },
+        {
+            "type":"lastText",
+            "sortKey":15,
+            "data":{
+                "text":"没有更多了"
+            },
+            "haveLine":false
         }
     ],
     "resultCode": "0000",

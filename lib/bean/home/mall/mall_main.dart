@@ -62,8 +62,17 @@ class ResultData {
         json['data'].forEach((v) {
           data.add(new MallGoodsItemBean.fromJson(v));
         });
-      }else if (type == 'bigItem') {
+        //单行大图
+      } else if (type == 'bigItem') {
         data = BigItemBean.fromJson(json['data']);
+      }
+      //没有更多
+      else if (type == 'lastText') {
+        data = LastTextBean.fromJson(json['data']);
+      }
+      //全部商品
+      else if (type == 'allGoods') {
+        data = AllGoodsBean.fromJson(json['data']);
       }
     }
     haveLine = json['haveLine'];
@@ -315,6 +324,7 @@ class Price {
     return data;
   }
 }
+
 //一行1张大图item样式
 class BigItemBean {
   BigItemPrice price;
@@ -376,6 +386,40 @@ class BigItemPrice {
     data['originPricePoint'] = this.originPricePoint;
     data['feePricePoint'] = this.feePricePoint;
     data['currentUserPricePoint'] = this.currentUserPricePoint;
+    return data;
+  }
+}
+
+//没有更多楼层
+class LastTextBean {
+  String text;
+
+  LastTextBean({this.text});
+
+  LastTextBean.fromJson(Map<String, dynamic> json) {
+    text = json['text'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['text'] = this.text;
+    return data;
+  }
+}
+
+//全部商品楼层
+class AllGoodsBean {
+  String text;
+
+  AllGoodsBean({this.text});
+
+  AllGoodsBean.fromJson(Map<String, dynamic> json) {
+    text = json['text'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['text'] = this.text;
     return data;
   }
 }
