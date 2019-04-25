@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
 import 'package:flutter_sample/bean/home/mall/mall_main.dart';
 import 'package:flutter_sample/page/gift/article/mall_article_root.dart';
+import 'package:flutter_sample/page/gift/goods/mall_goods_root.dart';
 import 'package:flutter_sample/page/gift/mall_left_navigation.dart';
 import 'package:flutter_sample/page/gift/mall_page_banner.dart';
 import 'package:flutter_sample/page/gift/mall_summary.dart';
@@ -159,6 +160,8 @@ class MallComponentState extends BasePageState {
             haveLine: haveLine);
       case 'summary':
         return MallSummaryComponent(resultDataList[position].data);
+        case 'gridGoodsItem':
+        return MallGridGoodsComponent(resultDataList[position].data);
       case 'bigItem':
         return new Text("data");
       case 'gridGoodsItem':

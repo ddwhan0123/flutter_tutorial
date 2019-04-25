@@ -56,7 +56,12 @@ class ResultData {
           data.add(new MallArticleBean.fromJson(v));
         });
       } else if (type == 'summary') {
-        data =  MallSummaryBean.fromJson(json['data']);
+        data = MallSummaryBean.fromJson(json['data']);
+      } else if (type == 'gridGoodsItem') {
+        data = new List<MallGoodsItemBean>();
+        json['data'].forEach((v) {
+          data.add(new MallGoodsItemBean.fromJson(v));
+        });
       }
     }
     haveLine = json['haveLine'];
@@ -241,6 +246,70 @@ class MallSummaryBean {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['text'] = this.text;
+    return data;
+  }
+}
+
+class MallGoodsItemBean {
+  Price price;
+  String subTitle;
+  String spuCode;
+  String img;
+  String title;
+
+  MallGoodsItemBean(
+      {this.price, this.subTitle, this.spuCode, this.img, this.title});
+
+  MallGoodsItemBean.fromJson(Map<String, dynamic> json) {
+    price = json['price'] != null ? new Price.fromJson(json['price']) : null;
+    subTitle = json['subTitle'];
+    spuCode = json['spu_code'];
+    img = json['img'];
+    title = json['title'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.price != null) {
+      data['price'] = this.price.toJson();
+    }
+    data['subTitle'] = this.subTitle;
+    data['spu_code'] = this.spuCode;
+    data['img'] = this.img;
+    data['title'] = this.title;
+    return data;
+  }
+}
+
+class Price {
+  int type;
+  String label;
+  int originPricePoint;
+  int feePricePoint;
+  int currentUserPricePoint;
+
+  Price(
+      {this.type,
+      this.label,
+      this.originPricePoint,
+      this.feePricePoint,
+      this.currentUserPricePoint});
+
+  Price.fromJson(Map<String, dynamic> json) {
+    type = json['type'];
+    label = json['label'];
+    originPricePoint = json['originPricePoint'];
+    feePricePoint = json['feePricePoint'];
+    currentUserPricePoint = json['currentUserPricePoint'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['type'] = this.type;
+    data['label'] = this.label;
+    data['originPricePoint'] = this.originPricePoint;
+    data['feePricePoint'] = this.feePricePoint;
+    data['currentUserPricePoint'] = this.currentUserPricePoint;
     return data;
   }
 }
