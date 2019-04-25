@@ -17,7 +17,7 @@ class MallGridGoodsComponent extends BaseStatelessWidget {
           physics: NeverScrollableScrollPhysics(),
           crossAxisCount: 2,
           shrinkWrap: true,
-          crossAxisSpacing: 10.0,
+          crossAxisSpacing: 8.0,
           childAspectRatio: 7 / 10,
           children: new List.generate(mallGoods.length, (index) {
             return renderGridItem(screenInstance, context, index);
@@ -52,7 +52,7 @@ class MallGridGoodsComponent extends BaseStatelessWidget {
             ),
             Row(
               children: <Widget>[
-                new Image.asset(
+                 Image.asset(
                   'assets/images/point_icon.png',
                   height: screenInstance.setWidth(32),
                   width: screenInstance.setWidth(32),

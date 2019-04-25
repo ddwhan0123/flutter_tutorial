@@ -1,7 +1,6 @@
 {
     "statusCode": "200",
-    "resultData": [
-        {
+    "resultData": [{
             "type": "banner",
             "sortKey": 1,
             "data": [{
@@ -70,152 +69,167 @@
             "haveLine": false
         },
         {
-            "type":"article",
-            "sortKey":3,
-            "data":[
-                {
-                    "pageCode":"W201904220002",
-                    "title":"在光影流转间，用玻璃增添家居仪式感",
-                    "headImage":"https://cdn-app.nio.com/user/2019/2/26/dfc15d35-f843-4452-b988-3d3e0c48834d.jpeg",
-                    "isEmployee":true,
-                    "identity":"not_owner",
-                    "nickname":"楚楚chuchu",
-                    "userTags":" ",
-                    "userRelation":1,
-                    "articleMiniPicUrl":"https://cdn-app.nio.com/MER/2019/4/22/ae32cc9b-cf43-4994-8546-04a827d5bcfb_M.jpg",
-                    "effectiveTime":1535984800000,
-                    "readCount":325,
-                    "isNioAuthorized":true,
-                    "accountId":"841332213",
-                    "identityImage":"",
-                    "commentCount":13,
-                    "likeCount":26,
-                    "swcArticleId":"503405",
-                    "imUser":{
-                        "imId":"841332213-prod",
-                        "status":null,
-                        "nick":"王亟亟",
-                        "headImageUrl":"https://cdn-app.nio.com/user/2019/2/26/dfc15d35-f843-4452-b988-3d3e0c48834d.jpeg?imageView2/2/w/150/h/150"
+            "type": "article",
+            "sortKey": 3,
+            "data": [{
+                    "pageCode": "W201904220002",
+                    "title": "在光影流转间，用玻璃增添家居仪式感",
+                    "headImage": "https://cdn-app.nio.com/user/2019/2/26/dfc15d35-f843-4452-b988-3d3e0c48834d.jpeg",
+                    "isEmployee": true,
+                    "identity": "not_owner",
+                    "nickname": "楚楚chuchu",
+                    "userTags": " ",
+                    "userRelation": 1,
+                    "articleMiniPicUrl": "https://cdn-app.nio.com/MER/2019/4/22/ae32cc9b-cf43-4994-8546-04a827d5bcfb_M.jpg",
+                    "effectiveTime": 1535984800000,
+                    "readCount": 325,
+                    "isNioAuthorized": true,
+                    "accountId": "841332213",
+                    "identityImage": "",
+                    "commentCount": 13,
+                    "likeCount": 26,
+                    "swcArticleId": "503405",
+                    "imUser": {
+                        "imId": "841332213-prod",
+                        "status": null,
+                        "nick": "王亟亟",
+                        "headImageUrl": "https://cdn-app.nio.com/user/2019/2/26/dfc15d35-f843-4452-b988-3d3e0c48834d.jpeg?imageView2/2/w/150/h/150"
                     }
                 },
                 {
-                    "pageCode":"W201904220001",
-                    "title":"你眼中的蔚蓝星球 | NIO Life地球日限定系列",
-                    "headImage":"https://cdn-app.nio.com/user/2018/6/11/ee8301a6-b068-4ac9-bf1c-a97de6958b64.jpeg",
-                    "isEmployee":true,
-                    "identity":"pre_owner",
-                    "nickname":"哈罗罗",
-                    "userTags":" ",
-                    "userRelation":1,
-                    "articleMiniPicUrl":"https://cdn-app.nio.com/MER/2019/4/22/5a32ebc4-7930-49c8-97fd-fdf74d2526bd.jpg",
-                    "effectiveTime":1553984800000,
-                    "readCount":3093,
-                    "isNioAuthorized":false,
-                    "accountId":"100025",
-                    "identityImage":"https://cdn-app.nio.com/user/2018/7/3/3cc8d773-2845-4766-bcda-bad3a06a378f.png",
-                    "commentCount":46,
-                    "likeCount":97,
-                    "swcArticleId":"503400",
-                    "imUser":{
-                        "imId":"100025-prod",
-                        "status":null,
-                        "nick":"哈罗罗",
-                        "headImageUrl":"https://cdn-app.nio.com/user/2018/6/11/ee8301a6-b068-4ac9-bf1c-a97de6958b64.jpeg?imageView2/2/w/150/h/150"
+                    "pageCode": "W201904220001",
+                    "title": "你眼中的蔚蓝星球 | NIO Life地球日限定系列",
+                    "headImage": "https://cdn-app.nio.com/user/2018/6/11/ee8301a6-b068-4ac9-bf1c-a97de6958b64.jpeg",
+                    "isEmployee": true,
+                    "identity": "pre_owner",
+                    "nickname": "哈罗罗",
+                    "userTags": " ",
+                    "userRelation": 1,
+                    "articleMiniPicUrl": "https://cdn-app.nio.com/MER/2019/4/22/5a32ebc4-7930-49c8-97fd-fdf74d2526bd.jpg",
+                    "effectiveTime": 1553984800000,
+                    "readCount": 3093,
+                    "isNioAuthorized": false,
+                    "accountId": "100025",
+                    "identityImage": "https://cdn-app.nio.com/user/2018/7/3/3cc8d773-2845-4766-bcda-bad3a06a378f.png",
+                    "commentCount": 46,
+                    "likeCount": 97,
+                    "swcArticleId": "503400",
+                    "imUser": {
+                        "imId": "100025-prod",
+                        "status": null,
+                        "nick": "哈罗罗",
+                        "headImageUrl": "https://cdn-app.nio.com/user/2018/6/11/ee8301a6-b068-4ac9-bf1c-a97de6958b64.jpeg?imageView2/2/w/150/h/150"
                     }
                 }
             ],
-            "haveLine":false
-        },{
-            "type":"summary",
-            "sortKey":4,
-            "data":{
-                "text":"iittala精选"
+            "haveLine": false
+        }, {
+            "type": "summary",
+            "sortKey": 4,
+            "data": {
+                "text": "iittala精选"
             },
-            "haveLine":false
-        },{
-            "type":"gridGoodsItem",
-            "sortKey":5,
-            "data":[
-                {
-                    "price":{
-                        "type":1,
-                        "label":"正常价",
-                        "originPricePoint":8600,
-                        "feePricePoint":8600,
-                        "currentUserPricePoint":8600
+            "haveLine": false
+        }, {
+            "type": "gridGoodsItem",
+            "sortKey": 5,
+            "data": [{
+                    "price": {
+                        "type": 1,
+                        "label": "正常价",
+                        "originPricePoint": 8600,
+                        "feePricePoint": 8600,
+                        "currentUserPricePoint": 8600
                     },
-                    "subTitle":"",
-                    "spu_code":"TG2019042100xxxx",
-                    "img":"https://cdn-app.nio.com/MER/2019/4/22/050041a0-6a06-41a9-aa46-06d310800100.jpg",
-                    "title":"传奇湖泊花瓶"
+                    "subTitle": "",
+                    "spu_code": "TG2019042100xxxx",
+                    "img": "https://cdn-app.nio.com/MER/2019/4/22/050041a0-6a06-41a9-aa46-06d310800100.jpg",
+                    "title": "传奇湖泊花瓶"
                 },
                 {
-                    "price":{
-                        "type":1,
-                        "label":"正常价",
-                        "originPricePoint":19000,
-                        "feePricePoint":19000,
-                        "currentUserPricePoint":19000
+                    "price": {
+                        "type": 1,
+                        "label": "正常价",
+                        "originPricePoint": 19000,
+                        "feePricePoint": 19000,
+                        "currentUserPricePoint": 19000
                     },
-                    "subTitle":"",
-                    "spu_code":"TG2019042100aaaa",
-                    "img":"https://cdn-app.nio.com/MER/2019/4/22/9f6cbc38-f6dd-425e-8438-f19be61eb35b.jpg",
-                    "title":"传奇湖泊花瓶"
+                    "subTitle": "",
+                    "spu_code": "TG2019042100aaaa",
+                    "img": "https://cdn-app.nio.com/MER/2019/4/22/9f6cbc38-f6dd-425e-8438-f19be61eb35b.jpg",
+                    "title": "传奇湖泊花瓶"
                 },
                 {
-                    "price":{
-                        "type":1,
-                        "label":"正常价",
-                        "originPricePoint":19000,
-                        "feePricePoint":19000,
-                        "currentUserPricePoint":19000
+                    "price": {
+                        "type": 1,
+                        "label": "正常价",
+                        "originPricePoint": 19000,
+                        "feePricePoint": 19000,
+                        "currentUserPricePoint": 19000
                     },
-                    "subTitle":"",
-                    "spu_code":"XG2019042200cxzs",
-                    "img":"https://cdn-app.nio.com/MER/2019/4/22/321e1c44-f4a3-435c-aac9-02281c954175.jpg",
-                    "title":"传奇湖泊花瓶"
+                    "subTitle": "",
+                    "spu_code": "XG2019042200cxzs",
+                    "img": "https://cdn-app.nio.com/MER/2019/4/22/321e1c44-f4a3-435c-aac9-02281c954175.jpg",
+                    "title": "传奇湖泊花瓶"
                 },
                 {
-                    "price":{
-                        "type":1,
-                        "label":"正常价",
-                        "originPricePoint":2900,
-                        "feePricePoint":2900,
-                        "currentUserPricePoint":2900
+                    "price": {
+                        "type": 1,
+                        "label": "正常价",
+                        "originPricePoint": 2900,
+                        "feePricePoint": 2900,
+                        "currentUserPricePoint": 2900
                     },
-                    "subTitle":"",
-                    "spu_code":"XG2019040700lkjh",
-                    "img":"https://cdn-app.nio.com/MER/2019/4/23/c4c7cfb6-dbef-49c9-9311-6fbd267e7eb1.jpg",
-                    "title":"露珠水杯"
+                    "subTitle": "",
+                    "spu_code": "XG2019040700lkjh",
+                    "img": "https://cdn-app.nio.com/MER/2019/4/23/c4c7cfb6-dbef-49c9-9311-6fbd267e7eb1.jpg",
+                    "title": "露珠水杯"
                 },
                 {
-                    "price":{
-                        "type":1,
-                        "label":"正常价",
-                        "originPricePoint":5300,
-                        "feePricePoint":5300,
-                        "currentUserPricePoint":5300
+                    "price": {
+                        "type": 1,
+                        "label": "正常价",
+                        "originPricePoint": 5300,
+                        "feePricePoint": 5300,
+                        "currentUserPricePoint": 5300
                     },
-                    "subTitle":"",
-                    "spu_code":"XG2019040700qwsa",
-                    "img":"https://cdn-app.nio.com/MER/2019/4/23/e0b630a3-179c-47ca-9bf3-ba230be1c5cc.jpg",
-                    "title":"露珠花瓶"
+                    "subTitle": "",
+                    "spu_code": "XG2019040700qwsa",
+                    "img": "https://cdn-app.nio.com/MER/2019/4/23/e0b630a3-179c-47ca-9bf3-ba230be1c5cc.jpg",
+                    "title": "露珠花瓶"
                 },
                 {
-                    "price":{
-                        "type":1,
-                        "label":"正常价",
-                        "originPricePoint":3900,
-                        "feePricePoint":3900,
-                        "currentUserPricePoint":3900
+                    "price": {
+                        "type": 1,
+                        "label": "正常价",
+                        "originPricePoint": 3900,
+                        "feePricePoint": 3900,
+                        "currentUserPricePoint": 3900
                     },
-                    "subTitle":"",
-                    "spu_code":"XG2019042000mnjd",
-                    "img":"https://cdn-app.nio.com/MER/2019/4/23/6365e8c4-80db-43b1-ba75-01a1394f09d6.jpg",
-                    "title":"露珠玻璃盘"
+                    "subTitle": "",
+                    "spu_code": "XG2019042000mnjd",
+                    "img": "https://cdn-app.nio.com/MER/2019/4/23/6365e8c4-80db-43b1-ba75-01a1394f09d6.jpg",
+                    "title": "露珠玻璃盘"
                 }
             ],
-            "haveLine":false
+            "haveLine": false
+        }, {
+            "type": "bigItem",
+            "sortKey": 6,
+            "data": {
+                "price": {
+                    "type": 1,
+                    "label": "正常价",
+                    "originPricePoint": 3300,
+                    "feePricePoint": 3300,
+                    "currentUserPricePoint": 3300
+                },
+                "subTitle": "",
+                "spu_code": "XG20190420000007",
+                "img": "https://cdn-app.nio.com/MER/2019/4/23/1f2ee3ad-422c-432d-8222-b7b0abae294e.jpg",
+                "title": "露珠收纳罐"
+            },
+            "haveLine": false
         }
     ],
     "resultCode": "0000",
