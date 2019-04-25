@@ -125,6 +125,13 @@
                 }
             ],
             "haveLine":false
+        },{
+            "type":"summary",
+            "sortKey":4,
+            "data":{
+                "text":"iittala精选"
+            },
+            "haveLine":false
         }
     ],
     "resultCode": "0000",

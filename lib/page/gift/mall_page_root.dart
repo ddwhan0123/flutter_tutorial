@@ -6,6 +6,7 @@ import 'package:flutter_sample/bean/home/mall/mall_main.dart';
 import 'package:flutter_sample/page/gift/article/mall_article_root.dart';
 import 'package:flutter_sample/page/gift/mall_left_navigation.dart';
 import 'package:flutter_sample/page/gift/mall_page_banner.dart';
+import 'package:flutter_sample/page/gift/mall_summary.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 
 class MallComponent extends BaseStatefulPage {
@@ -21,7 +22,6 @@ class MallComponent extends BaseStatefulPage {
 
 class MallComponentState extends BasePageState {
   var barOpacity = 0.0; //默认不透明
-  var array = ['banner', 'bigItem', 'gridGoodsItem', 'leftNavigation'];
   List<ResultData> resultDataList; //大页面主数据
   @override
   Widget build(BuildContext context) {
@@ -157,6 +157,8 @@ class MallComponentState extends BasePageState {
         return MallArticleComponent(
             mallArticleBeans: resultDataList[position].data,
             haveLine: haveLine);
+      case 'summary':
+        return MallSummaryComponent(resultDataList[position].data);
       case 'bigItem':
         return new Text("data");
       case 'gridGoodsItem':

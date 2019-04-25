@@ -34,7 +34,7 @@ class MallMainBean {
 class ResultData {
   String type;
   int sortKey;
-  List<dynamic> data;
+  dynamic data;
   bool haveLine;
 
   ResultData({this.type, this.sortKey, this.data, this.haveLine});
@@ -55,6 +55,8 @@ class ResultData {
         json['data'].forEach((v) {
           data.add(new MallArticleBean.fromJson(v));
         });
+      } else if (type == 'summary') {
+        data =  MallSummaryBean.fromJson(json['data']);
       }
     }
     haveLine = json['haveLine'];
@@ -201,6 +203,7 @@ class MallArticleBean {
   }
 }
 
+//文章的用户头像
 class ImUser {
   String imId;
   Null status;
@@ -222,6 +225,22 @@ class ImUser {
     data['status'] = this.status;
     data['nick'] = this.nick;
     data['headImageUrl'] = this.headImageUrl;
+    return data;
+  }
+}
+
+class MallSummaryBean {
+  String text;
+
+  MallSummaryBean({this.text});
+
+  MallSummaryBean.fromJson(Map<String, dynamic> json) {
+    text = json['text'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['text'] = this.text;
     return data;
   }
 }
