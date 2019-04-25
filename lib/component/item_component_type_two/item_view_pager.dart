@@ -19,7 +19,7 @@ class ItemViewPagerTypeTwo extends BaseStatelessWidget {
           physics: new ClampingScrollPhysics(), //禁用回弹
           controller: new ScrollController(keepScrollOffset: false),
           scrollDirection: Axis.horizontal,
-          itemCount: 4,
+          itemCount: imgList.length,
           itemBuilder: (BuildContext context, int position) {
             return renderItem(position, context, _screenInstance);
           }),

@@ -30,7 +30,7 @@ class MallAllGoodsComponent extends BaseStatelessWidget {
                   child: Text(
                     '全部商品',
                     style: TextStyle(
-                        fontSize: screenInstance.setSp(24),
+                        fontSize: screenInstance.setSp(26),
                         color: styles.ComponentStyle.APP_MAIN_COLOR),
                   ),
                 ),
