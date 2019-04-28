@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="open_flutter_page_text">打开一个flutter页面</string>
+    <string name="open_native_page_text">打开一个native页面</string>
 </resources>
