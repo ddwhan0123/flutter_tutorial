@@ -31,12 +31,14 @@
         </activity>
 
         <activity
+            android:theme="@style/Theme.AppCompat"
             android:name=".android.NativeActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
+            android:theme="@style/Theme.AppCompat"
             android:name=".android.NativeSonActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
             android:hardwareAccelerated="true"

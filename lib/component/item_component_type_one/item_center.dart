@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boost/flutter_boost.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 import '../../style/style.dart' as styles;
 
@@ -49,7 +50,8 @@ class ItemCenterViewImp extends State<ItemCenterView> {
   _click(BuildContext context, String url) {
     if (null != widget.onImageClick) {
       widget.onImageClick(url);
-    } 
+    }
+    FlutterBoost.singleton.openPage("nio://nativePage", {});
   }
 
   Widget _renderViewGroup(ScreenUtil screenInstance, BuildContext context) {
