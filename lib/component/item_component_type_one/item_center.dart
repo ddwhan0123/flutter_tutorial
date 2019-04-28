@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sample/config/application.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 import '../../style/style.dart' as styles;
-import 'package:fluttertoast/fluttertoast.dart';
 
 class ItemCenterView extends StatefulWidget {
   final String articleTitle; //大标题
@@ -51,27 +49,7 @@ class ItemCenterViewImp extends State<ItemCenterView> {
   _click(BuildContext context, String url) {
     if (null != widget.onImageClick) {
       widget.onImageClick(url);
-    } else {
-      String message = "100861221";
-      String route = "/page/one?message=$message&color_hex=#ffffff";
-      String result = "11111";
-      if (result != null) {
-        route = "$route&result=$result";
-      }
-      Application.router.navigateTo(context, route).then((result) {
-        print("---> " + result);
-      });
-      //  Application.router.navigateTo(
-      //     context, "/demo/fixedtrans?message=Hello!&color_hex=#333333");
-      Fluttertoast.showToast(
-          msg: url,
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.BOTTOM,
-          timeInSecForIos: 1,
-          backgroundColor: Colors.black,
-          textColor: Colors.white,
-          fontSize: 16.0);
-    }
+    } 
   }
 
   Widget _renderViewGroup(ScreenUtil screenInstance, BuildContext context) {
