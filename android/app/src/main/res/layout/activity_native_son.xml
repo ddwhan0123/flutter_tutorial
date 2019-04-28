@@ -21,4 +21,14 @@
         android:text="@string/open_native_page_text"
         android:textColor="#12cdf1"
         android:textSize="30sp" />
+
+
+    <TextView
+        android:id="@+id/closePage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/close_page_text"
+        android:textColor="#ec146c"
+        android:textSize="30sp" />
 </LinearLayout>

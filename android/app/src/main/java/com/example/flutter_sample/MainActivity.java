@@ -2,12 +2,15 @@ package com.example.flutter_sample;
 
 import android.os.Bundle;
 
-import java.lang.ref.WeakReference;
+import com.taobao.idlefish.flutterboost.containers.BoostFlutterActivity;
 
-import io.flutter.app.FlutterActivity;
+import java.lang.ref.WeakReference;
+import java.util.Map;
+
+import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.plugins.GeneratedPluginRegistrant;
 
-public class MainActivity extends FlutterActivity {
+public class MainActivity extends BoostFlutterActivity {
 
     public static WeakReference<MainActivity> sRef;
 
@@ -15,7 +18,6 @@ public class MainActivity extends FlutterActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sRef = new WeakReference<>(this);
-        GeneratedPluginRegistrant.registerWith(this);
     }
 
     @Override
@@ -23,6 +25,21 @@ public class MainActivity extends FlutterActivity {
         super.onDestroy();
         sRef.clear();
         sRef = null;
+    }
+
+    @Override
+    public String getContainerName() {
+        return "homePage";
+    }
+
+    @Override
+    public Map getContainerParams() {
+        return null;
+    }
+
+    @Override
+    public void onRegisterPlugins(PluginRegistry registry) {
+        GeneratedPluginRegistrant.registerWith(this);
     }
 
 }

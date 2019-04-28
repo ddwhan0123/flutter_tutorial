@@ -8,8 +8,8 @@ import com.example.flutter_sample.android.NativeActivity;
 
 public class PageRouter {
 
-    static final String NATIVE_PAGE_URL = "nio://nativePage";
-    static final String FLUTTER_HOME_PAGE_URL = "nio://homePage";
+    public static final String NATIVE_PAGE_URL = "nio://nativePage";
+    public static final String FLUTTER_HOME_PAGE_URL = "nio://homePage";
 
     public static boolean openPageByUrl(Context context, String url) {
         return openPageByUrl(context, url, 0);
