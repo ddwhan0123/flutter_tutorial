@@ -1,6 +1,12 @@
 package com.example.flutter_sample;
 
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+
 
 import com.taobao.idlefish.flutterboost.containers.BoostFlutterActivity;
 
@@ -13,11 +19,12 @@ import io.flutter.plugins.GeneratedPluginRegistrant;
 public class MainActivity extends BoostFlutterActivity {
 
     public static WeakReference<MainActivity> sRef;
+    private View mLoadingContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         sRef = new WeakReference<>(this);
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -25,6 +32,17 @@ public class MainActivity extends BoostFlutterActivity {
         super.onDestroy();
         sRef.clear();
         sRef = null;
+    }
+
+    @Override
+    protected View createSplashScreenView() {
+        mLoadingContainer = LayoutInflater.from(getActivity()).inflate(R.layout.pure_credit_pay_activity_layout, null);
+        FrameLayout frameLayout = new FrameLayout(this);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.gravity = Gravity.CENTER;
+        frameLayout.addView(mLoadingContainer, params);
+        return frameLayout;
     }
 
     @Override
