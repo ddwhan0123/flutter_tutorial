@@ -1,44 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/config/application.dart';
+import 'package:flutter_sample/config/routes.dart';
 import './view/home_page.dart';
-import 'package:flutter_boost/flutter_boost.dart';
+import 'package:fluro/fluro.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return MyAppState();
+class MyApp extends StatelessWidget {
+  //main.dart容器类的构造函数里初始化路由
+  MyApp() {
+    final router = new Router();
+    Routes.configureRoutes(router);
+    Application.router = router;
   }
-}
-
-class MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-
-    FlutterBoost.singleton.registerPageBuilders({
-      ///可以在native层通过 getContainerParams 来传递参数
-      'homePage': (pageName, params, _) => HomePage(),
-    });
-
-    FlutterBoost.handleOnStartPage();
-  }
-
   @override
   Widget build(BuildContext context) {
     final app = MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primaryColor: Colors.white,
-        ),
-        builder: FlutterBoost.init(postPush: _onRoutePushed),
-        home: Container());
-
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.white,
+      ),
+      home: HomePage(),
+      onGenerateRoute: Application.router.generator,
+    );
     return app;
-  }
-
-  void _onRoutePushed(
-      String pageName, String uniqueId, Map params, Route route, Future _) {
-    print('---> _onRoutePushed pageName ' + pageName);
   }
 }
