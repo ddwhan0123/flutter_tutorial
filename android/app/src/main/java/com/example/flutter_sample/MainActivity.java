@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 import com.taobao.idlefish.flutterboost.containers.BoostFlutterActivity;
 
 import java.lang.ref.WeakReference;
+import java.util.HashMap;
 import java.util.Map;
 
 import io.flutter.plugin.common.PluginRegistry;
@@ -52,7 +53,10 @@ public class MainActivity extends BoostFlutterActivity {
 
     @Override
     public Map getContainerParams() {
-        return null;
+        //params of the page
+        Map<String,String> params = new HashMap<>();
+        params.put("key","value");
+        return params;
     }
 
     @Override

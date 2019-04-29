@@ -51,7 +51,7 @@ class ItemCenterViewImp extends State<ItemCenterView> {
     if (null != widget.onImageClick) {
       widget.onImageClick(url);
     }
-    FlutterBoost.singleton.openPage("nio://nativePage", {});
+    FlutterBoost.singleton.openPage("nio://nativePage", {"query": {"key": "value"}});
   }
 
   Widget _renderViewGroup(ScreenUtil screenInstance, BuildContext context) {

@@ -18,10 +18,15 @@ class MyAppState extends State<MyApp> {
 
     FlutterBoost.singleton.registerPageBuilders({
       ///可以在native层通过 getContainerParams 来传递参数
-      'homePage': (pageName, params, _) => HomePage(),
+      'homePage': (pageName, params, _) => renderHome(pageName, params, _),
     });
 
     FlutterBoost.handleOnStartPage();
+  }
+
+  Widget renderHome(String pageName, Map<dynamic, dynamic> params, String _) {
+    print("---> pageName "+pageName);
+    return HomePage();
   }
 
   @override

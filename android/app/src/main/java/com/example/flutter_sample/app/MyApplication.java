@@ -3,6 +3,7 @@ package com.example.flutter_sample.app;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import com.example.flutter_sample.MainActivity;
 import com.example.flutter_sample.route.PageRouter;
@@ -53,8 +54,7 @@ public class MyApplication extends FlutterApplication {
              */
             @Override
             public boolean startActivity(Context context, String url, int requestCode) {
-                Debuger.log("startActivity url= "+url);
-
+                Log.d("---> MyApplication","startActivity url "+url);
                 return PageRouter.openPageByUrl(context,url,requestCode);
             }
 
