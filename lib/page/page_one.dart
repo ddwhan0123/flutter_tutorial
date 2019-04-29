@@ -16,47 +16,37 @@ class PageOneComponent extends BaseStatefulPage {
 
   @override
   State<StatefulWidget> createState() {
-    return PageOneState(message: message, color: color, result: result);
+    return PageOneState();
   }
 }
 
 class PageOneState extends BasePageState<PageOneComponent> {
-  PageOneState(
-      {String message = "Testing",
-      Color color = const Color(0xFFFFFFFF),
-      String result})
-      : this.message = message,
-        this.color = color,
-        this.result = result;
-  final String message;
-  final Color color;
-  final String result;
 
   @override
   Widget build(BuildContext context) {
     return new Material(
-      color: this.color,
+      color: widget.color,
       child: new Padding(
         padding: new EdgeInsets.only(top: 15.0),
         child: new ConstrainedBox(
           constraints: new BoxConstraints(minHeight: 42.0),
           child: new FlatButton(
             highlightColor:
-                ColorHelpers.blackOrWhiteContrastColor(color).withAlpha(17),
+                ColorHelpers.blackOrWhiteContrastColor(widget.color).withAlpha(17),
             splashColor:
-                ColorHelpers.blackOrWhiteContrastColor(color).withAlpha(34),
+                ColorHelpers.blackOrWhiteContrastColor(widget.color).withAlpha(34),
             onPressed: () {
-              if (result == null) {
+              if (widget.result == null) {
                 Navigator.pop(context);
               } else {
-                Navigator.pop(context, result);
+                Navigator.pop(context, widget.result);
               }
             },
             child: new Text(
-              message + " 是传来的",
+              widget.message + " 是传来的",
               style: new TextStyle(
                 fontSize: 18.0,
-                color: ColorHelpers.blackOrWhiteContrastColor(color),
+                color: ColorHelpers.blackOrWhiteContrastColor(widget.color),
               ),
             ),
           ),

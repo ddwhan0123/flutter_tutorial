@@ -23,6 +23,11 @@ public class MainActivity extends BoostFlutterActivity {
     private View mLoadingContainer;
 
     @Override
+    public void onRegisterPlugins(PluginRegistry registry) {
+        GeneratedPluginRegistrant.registerWith(this);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         sRef = new WeakReference<>(this);
         super.onCreate(savedInstanceState);
@@ -61,9 +66,6 @@ public class MainActivity extends BoostFlutterActivity {
         return params;
     }
 
-    @Override
-    public void onRegisterPlugins(PluginRegistry registry) {
-        GeneratedPluginRegistrant.registerWith(this);
-    }
+
 
 }

@@ -11,7 +11,7 @@ abstract class BaseStatefulPage extends StatefulWidget {
  * 
  * State的抽象类父类，实现生命周期回调
  */
-abstract class BasePageState<T extends BaseStatefulPage> extends State
+abstract class BasePageState<T extends BaseStatefulPage> extends State<T>
     with WidgetsBindingObserver {
   //给子类实现的页面开始方法
   @protected

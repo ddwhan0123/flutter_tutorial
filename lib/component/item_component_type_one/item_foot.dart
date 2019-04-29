@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/page/page_one.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 import '../../style/style.dart' as styles;
 
@@ -37,11 +38,11 @@ class ItemFootViewImp extends State<ItemFootView> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               _renderComment(
-                  data[0]['resPath'], data[0]['value'], screenInstance),
+                  data[0]['resPath'], data[0]['value'], screenInstance,context),
               _renderComment(
                 data[1]['resPath'],
                 data[1]['value'],
-                screenInstance,
+                screenInstance,context
               )
             ],
           ))
@@ -52,7 +53,7 @@ class ItemFootViewImp extends State<ItemFootView> {
     );
   }
 
-  Widget _renderComment(String resPath, String value, ScreenUtil instance) {
+  Widget _renderComment(String resPath, String value, ScreenUtil instance,BuildContext context) {
     return GestureDetector(
       child: AnimatedContainer(
           duration: Duration(milliseconds: 500),
@@ -73,14 +74,20 @@ class ItemFootViewImp extends State<ItemFootView> {
               ),
               padding: EdgeInsetsDirectional.fromSTEB(
                   instance.setWidth(20), 0, 0, 0))),
-      onTap: () => _showToast(value),
+      onTap: () => _showToast(value, context),
       onTapDown: (d) => setState(() => this.isDown = true),
       onTapUp: (d) => setState(() => this.isDown = false),
       onTapCancel: () => setState(() => this.isDown = false),
     );
   }
 
-  _showToast(String value) {
+  _showToast(String value, BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (_) => PageOneComponent(
+                  message: '你好呀',
+                )));
     Fluttertoast.showToast(
         msg: value,
         toastLength: Toast.LENGTH_SHORT,
