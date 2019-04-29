@@ -27,6 +27,7 @@ dependencies:
   flustars: ^0.2.5 # 工具包
   flutter_swiper : 1.1.6
   flutter_boost: ^0.0.411
+  fluro: "^1.4.0"
     
 dev_dependencies:
   flutter_test:

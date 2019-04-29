@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
+import 'package:flutter_sample/config/application.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 import '../../style/style.dart' as styles;
 
@@ -51,7 +52,16 @@ class ItemCenterViewImp extends State<ItemCenterView> {
     if (null != widget.onImageClick) {
       widget.onImageClick(url);
     }
-    FlutterBoost.singleton.openPage("nio://nativePage", {"query": {"key": "value"}});
+         String message = "100861221";
+      String route = "/page/one?message=$message&color_hex=#ffffff";
+      String result = "11111";
+      if (result != null) {
+        route = "$route&result=$result";
+      }
+      Application.router.navigateTo(context, route).then((result) {
+        print("---> " + result);
+      });
+
   }
 
   Widget _renderViewGroup(ScreenUtil screenInstance, BuildContext context) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boost/flutter_boost.dart';
 import 'package:flutter_sample/page/page_one.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 import '../../style/style.dart' as styles;
@@ -37,13 +38,10 @@ class ItemFootViewImp extends State<ItemFootView> {
               child: new Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
+              _renderComment(data[0]['resPath'], data[0]['value'],
+                  screenInstance, context),
               _renderComment(
-                  data[0]['resPath'], data[0]['value'], screenInstance,context),
-              _renderComment(
-                data[1]['resPath'],
-                data[1]['value'],
-                screenInstance,context
-              )
+                  data[1]['resPath'], data[1]['value'], screenInstance, context)
             ],
           ))
         ],
@@ -53,7 +51,8 @@ class ItemFootViewImp extends State<ItemFootView> {
     );
   }
 
-  Widget _renderComment(String resPath, String value, ScreenUtil instance,BuildContext context) {
+  Widget _renderComment(
+      String resPath, String value, ScreenUtil instance, BuildContext context) {
     return GestureDetector(
       child: AnimatedContainer(
           duration: Duration(milliseconds: 500),
@@ -82,12 +81,9 @@ class ItemFootViewImp extends State<ItemFootView> {
   }
 
   _showToast(String value, BuildContext context) {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (_) => PageOneComponent(
-                  message: '你好呀',
-                )));
+    FlutterBoost.singleton.openPage("nio://nativePage", {
+      "query": {"key": "value"}
+    });
     Fluttertoast.showToast(
         msg: value,
         toastLength: Toast.LENGTH_SHORT,
