@@ -62,7 +62,7 @@ public class MainActivity extends BoostFlutterActivity {
     public Map getContainerParams() {
         //params of the page
         Map<String,String> params = new HashMap<>();
-        params.put("key","value");
+        params.put("key",getIntent().getStringExtra("key"));
         return params;
     }
 

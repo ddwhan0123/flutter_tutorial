@@ -7,7 +7,6 @@ import android.util.Log;
 
 import com.example.flutter_sample.MainActivity;
 import com.example.flutter_sample.route.PageRouter;
-import com.taobao.idlefish.flutterboost.Debuger;
 import com.taobao.idlefish.flutterboost.FlutterBoostPlugin;
 import com.taobao.idlefish.flutterboost.interfaces.IPlatform;
 
@@ -20,6 +19,7 @@ public class MyApplication extends FlutterApplication {
     public void onCreate() {
         super.onCreate();
 
+        //初始化Flutter插件并实现回调
         FlutterBoostPlugin.init(new IPlatform() {
             @Override
             public Application getApplication() {
