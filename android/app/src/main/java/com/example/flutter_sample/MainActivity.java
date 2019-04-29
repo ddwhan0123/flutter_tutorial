@@ -31,8 +31,10 @@ public class MainActivity extends BoostFlutterActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        sRef.clear();
-        sRef = null;
+        if(null!=sRef){
+            sRef.clear();
+            sRef = null;
+        }
     }
 
     @Override
