@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/widget/base_stateful_widget.dart';
 import 'package:flutter_sample/component/widget/common/dividing_line.dart';
+import 'package:flutter_sample/config/application.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 import '../../style/style.dart' as styles;
 
@@ -52,12 +53,17 @@ class MePageListState extends BaseState<MePageList> {
         });
   }
 
+  onItemClick(index, BuildContext context) {
+    showToast("点击了 " + dataList[index]);
+    Application.router.navigateTo(context, "/me/setting");
+  }
+
   //ListView的Item
   Widget buildItem(BuildContext context, int index, ScreenUtil screenInstance) {
     return new Column(
       children: <Widget>[
         new GestureDetector(
-          onTap: () => (showToast("点击了 " + dataList[index])),
+          onTap: () => (onItemClick(index, context)),
           child: new Container(
             child: new Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -66,7 +72,7 @@ class MePageListState extends BaseState<MePageList> {
                 new Row(
                   children: <Widget>[
                     new Image.asset(
-                     imageList[index],
+                      imageList[index],
                       width: 38,
                       height: 38,
                     ),
