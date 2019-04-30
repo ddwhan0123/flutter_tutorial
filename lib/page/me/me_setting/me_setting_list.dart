@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/widget/base_stateful_widget.dart';
+import 'package:flutter_sample/component/widget/common/app_bar.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 import '../../../style/style.dart' as styles;
 
@@ -16,10 +17,7 @@ class MeSettingState extends BaseState<MeSettingPage> {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     var screenInstance = ScreenUtil.getInstance();
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        title: renderTitle(),
-      ),
+      appBar: CommonBar(),
     );
   }
 
