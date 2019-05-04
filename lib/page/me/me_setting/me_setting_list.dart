@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/widget/base_stateful_widget.dart';
 import 'package:flutter_sample/component/widget/common/app_bar.dart';
+import 'package:flutter_sample/page/me/me_setting/me_setting_item.dart';
 import 'package:flutter_sample/utils/screen_util.dart';
 import '../../../style/style.dart' as styles;
 
@@ -12,6 +13,8 @@ class MeSettingPage extends BaseStatefullWidget {
 }
 
 class MeSettingState extends BaseState<MeSettingPage> {
+  List data = ['账号绑定', '错误反馈', '检查更新', '版本'];
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
@@ -32,7 +35,14 @@ class MeSettingState extends BaseState<MeSettingPage> {
   //渲染列表
   Widget renderList() {
     return Expanded(
-      child: Text('我是列表'),
+      child: new ListView.builder(
+          itemCount: data.length,
+          itemBuilder: (BuildContext context, int position) {
+            return MeSettingItem(
+              index: position,
+              title: data[position],
+            );
+          }),
     );
   }
 
