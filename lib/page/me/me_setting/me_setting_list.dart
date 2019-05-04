@@ -39,9 +39,9 @@ class MeSettingState extends BaseState<MeSettingPage> {
           itemCount: data.length,
           itemBuilder: (BuildContext context, int position) {
             return MeSettingItem(
-              index: position,
-              title: data[position],
-            );
+                index: position,
+                title: data[position],
+                type: (position == data.length - 1) ? 0 : 1);
           }),
     );
   }

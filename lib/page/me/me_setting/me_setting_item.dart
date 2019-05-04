@@ -6,7 +6,8 @@ import '../../../style/style.dart' as styles;
 class MeSettingItem extends BaseStatelessWidget {
   final int index;
   final String title;
-  MeSettingItem({this.index, this.title});
+  final int type;
+  MeSettingItem({this.index, this.title, this.type});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -25,7 +26,7 @@ class MeSettingItem extends BaseStatelessWidget {
                           color: styles.ComponentStyle.TITLE_TEXT_COLOR,
                           fontSize: 16),
                     ),
-                    renderRight(1)
+                    renderRight(this.type)
                   ],
                 ),
               ),
@@ -39,7 +40,7 @@ class MeSettingItem extends BaseStatelessWidget {
         ),
       ),
       onTap: () {
-        showToast('点击item');
+        showToast(this.title);
       },
     );
   }
@@ -54,7 +55,10 @@ class MeSettingItem extends BaseStatelessWidget {
         ),
       );
     } else {
-      return Text('V3.6.0 test');
+      return Text(
+        'V3.6.0 test',
+        style: TextStyle(color: styles.ComponentStyle.FOOT_TEXT_COLOR),
+      );
     }
   }
 }
