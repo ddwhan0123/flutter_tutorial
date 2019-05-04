@@ -6,11 +6,12 @@ class CommonBar extends BaseStatelessWidget implements PreferredSizeWidget {
   final String titleString;
   final Function onBackClick;
   final PreferredSizeWidget bottom;
-  CommonBar({this.titleString, this.onBackClick, this.bottom});
+  final double elevation;
+  CommonBar({this.titleString, this.onBackClick, this.bottom, this.elevation});
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      elevation: 0,
+      elevation: null != elevation ? elevation : 0.0,
       title: Text(
         this.titleString ?? '',
         style: TextStyle(color: styles.ComponentStyle.TITLE_TEXT_COLOR),
