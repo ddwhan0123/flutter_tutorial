@@ -7,8 +7,8 @@ class HomePage extends BaseStatefulPage {
   State<StatefulWidget> createState() => HomeState();
 }
 
-class HomeState extends BasePageState<HomePage>
-    with SingleTickerProviderStateMixin {
+class HomeState extends BasePageState<HomePage>{
+   
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
