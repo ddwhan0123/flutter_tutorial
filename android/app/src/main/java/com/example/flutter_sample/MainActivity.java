@@ -120,6 +120,4 @@ public class MainActivity extends BoostFlutterActivity {
         params.put("key", getIntent().getStringExtra("key"));
         return params;
     }
-
-
 }
