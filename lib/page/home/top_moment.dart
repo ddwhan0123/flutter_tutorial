@@ -16,11 +16,15 @@ class MomentComponent extends BaseStatefulPage {
 
 class MomentComponentState extends BasePageState {
   static const platform = const MethodChannel('samples.flutter.wjj');
+  static const EventChannel eventChannel = EventChannel('event.flutter.wjj');
+
   String version = '-1';
+  String _chargingStatus = 'Battery status: unknown.';
 
   @override
   void initState() {
     super.initState();
+    eventChannel.receiveBroadcastStream().listen(_onEvent, onError: _onError);
     getPlatformVersion();
   }
 
@@ -29,9 +33,25 @@ class MomentComponentState extends BasePageState {
     return Column(
       children: <Widget>[
         Text("MomentComponentState  " + version),
-     
+        Text(_chargingStatus),
       ],
     );
+  }
+
+  void _onEvent(Object event) {
+     print('---> _onEvent event ' + event);
+    setState(() {
+      _chargingStatus =
+          "Battery status: ${event == 'charging' ? '充电中' : '没有充电'}.";
+    });
+  }
+
+  void _onError(Object error) {
+     print('---> _onEvent error ' + error);
+    setState(() {
+      PlatformException exception = error;
+      _chargingStatus = exception?.message ?? 'Battery status: unknown.';
+    });
   }
 
   Future<Null> getPlatformVersion() async {
