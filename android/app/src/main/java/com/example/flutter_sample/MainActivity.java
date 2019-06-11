@@ -30,32 +30,53 @@ public class MainActivity extends BoostFlutterActivity {
     private String CHANNEL = "samples.flutter.wjj";
     public static WeakReference<MainActivity> sRef;
     private View mLoadingContainer;
+    private MethodChannel methodChannel;
 
     @Override
     public void onRegisterPlugins(PluginRegistry registry) {
         GeneratedPluginRegistrant.registerWith(this);
     }
 
+    private void LogFlutterStr() {
+        methodChannel.invokeMethod("getFlutterName", null, new MethodChannel.Result() {
+            @Override
+            public void success(Object o) {
+                // 这里就会输出 "Flutter name flutter"
+                Log.d("---> success ", o.toString());
+            }
+
+            @Override
+            public void error(String s, String s1, Object o) {
+                Log.d("---> error ", s);
+            }
+
+            @Override
+            public void notImplemented() {
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         sRef = new WeakReference<>(this);
         super.onCreate(savedInstanceState);
-
-        new MethodChannel(getFlutterView(), CHANNEL).setMethodCallHandler((methodCall, result) -> {
+        methodChannel = new MethodChannel(getFlutterView(), CHANNEL);
+        methodChannel.setMethodCallHandler((methodCall, result) -> {
             if (methodCall.method.equals("getPlatformVersion")) { // 对应dart端 invoceMethod
                 result.success("Android " + android.os.Build.VERSION.RELEASE);
+                LogFlutterStr();
             } else {
                 result.notImplemented();
             }
         });
 
-        new EventChannel((getFlutterView()) , "event.flutter.wjj").setStreamHandler(
+        new EventChannel((getFlutterView()), "event.flutter.wjj").setStreamHandler(
                 new EventChannel.StreamHandler() {
                     private BroadcastReceiver chargingStateChangeReceiver;
 
                     @Override
                     public void onListen(Object arguments, EventChannel.EventSink events) {
-                        Log.d("--->onListen ","");
+                        Log.d("--->onListen ", "");
                         chargingStateChangeReceiver = createChargingStateChangeReceiver(events);
                         registerReceiver(
                                 chargingStateChangeReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
@@ -63,7 +84,7 @@ public class MainActivity extends BoostFlutterActivity {
 
                     @Override
                     public void onCancel(Object arguments) {
-                        Log.d(" ---> ","arguments "+arguments.toString());
+                        Log.d(" ---> ", "arguments " + arguments.toString());
                         unregisterReceiver(chargingStateChangeReceiver);
                         chargingStateChangeReceiver = null;
                     }

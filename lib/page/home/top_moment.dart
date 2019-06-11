@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/base/page/base_stateful_page.dart';
 import 'package:flutter/services.dart';
@@ -21,11 +23,20 @@ class MomentComponentState extends BasePageState {
   String version = '-1';
   String _chargingStatus = 'Battery status: unknown.';
 
+  Future<dynamic> platformCallHandler(MethodCall call) async {
+    switch (call.method) {
+      case "getFlutterName":
+        return '随机的是 '+(Random().nextInt(30).toString());
+        break;
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     eventChannel.receiveBroadcastStream().listen(_onEvent, onError: _onError);
     getPlatformVersion();
+    platform.setMethodCallHandler(platformCallHandler);
   }
 
   @override
@@ -39,7 +50,7 @@ class MomentComponentState extends BasePageState {
   }
 
   void _onEvent(Object event) {
-     print('---> _onEvent event ' + event);
+    print('---> _onEvent event ' + event);
     setState(() {
       _chargingStatus =
           "Battery status: ${event == 'charging' ? '充电中' : '没有充电'}.";
@@ -47,7 +58,7 @@ class MomentComponentState extends BasePageState {
   }
 
   void _onError(Object error) {
-     print('---> _onEvent error ' + error);
+    print('---> _onEvent error ' + error);
     setState(() {
       PlatformException exception = error;
       _chargingStatus = exception?.message ?? 'Battery status: unknown.';
