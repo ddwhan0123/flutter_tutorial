@@ -90,7 +90,6 @@ public class MainActivity extends BoostFlutterActivity {
                     }
                 }
         );
-
     }
 
     private BroadcastReceiver createChargingStateChangeReceiver(final EventChannel.EventSink events) {
