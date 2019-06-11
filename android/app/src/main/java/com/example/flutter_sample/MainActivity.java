@@ -43,23 +43,6 @@ public class MainActivity extends BoostFlutterActivity {
             }
         });
 
-        new MethodChannel(getFlutterView(), CHANNEL).invokeMethod("getName", null, new MethodChannel.Result() {
-            @Override
-            public void success(Object o) {
-                // 这里就会输出 "Hello from Flutter"
-                Log.d("--->success", o.toString());
-            }
-            @Override
-            public void error(String s, String s1, Object o) {
-                Log.d("--->error", o.toString());
-
-            }
-            @Override
-            public void notImplemented() {
-                Log.d("--->notImplemented", "");
-            }
-        });
-
     }
 
     @Override
