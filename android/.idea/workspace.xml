@@ -10,9 +10,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cd4494c-e3b2-4cb9-a946-36e2c518562e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/flutter_sample/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/flutter_sample/MainActivity.java" afterDir="false" />
-    </list>
+    <list default="true" id="7cd4494c-e3b2-4cb9-a946-36e2c518562e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,10 +37,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/flutter_sample/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="45" column="13" lean-forward="true" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+            <state relative-caret-position="-315">
+              <caret line="22" column="45" lean-forward="true" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#1588#1589#0" expanded="true" />
                 <element signature="e#1648#1649#0" expanded="true" />
                 <element signature="e#2667#3332#0" expanded="true" />
@@ -88,8 +85,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1819" />
-    <option name="y" value="95" />
+    <option name="x" value="-1897" />
+    <option name="y" value="86" />
     <option name="width" value="1440" />
     <option name="height" value="831" />
   </component>
@@ -247,7 +244,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1819" y="95" width="1440" height="831" extended-state="0" />
+    <frame x="-1897" y="86" width="1440" height="831" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.24964234" />
       <window_info content_ui="combo" id="Project" order="1" weight="0.3297568" />
@@ -385,10 +382,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/flutter_sample/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="45" column="13" lean-forward="true" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        <state relative-caret-position="-315">
+          <caret line="22" column="45" lean-forward="true" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#1588#1589#0" expanded="true" />
             <element signature="e#1648#1649#0" expanded="true" />
             <element signature="e#2667#3332#0" expanded="true" />
