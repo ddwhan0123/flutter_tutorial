@@ -1,0 +1,1 @@
+../../../../.symlinks/plugins/xservice_kit/ios/Classes/Service/FlutterNativeService.h

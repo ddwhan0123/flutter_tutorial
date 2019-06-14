@@ -1,10 +1,10 @@
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../.symlinks/flutter/ios"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Flutter" "${PODS_ROOT}/Headers/Public/flustars" "${PODS_ROOT}/Headers/Public/fluttertoast" "${PODS_ROOT}/Headers/Public/shared_preferences"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Flutter" "${PODS_ROOT}/Headers/Public/flustars" "${PODS_ROOT}/Headers/Public/flutter_boost" "${PODS_ROOT}/Headers/Public/fluttertoast" "${PODS_ROOT}/Headers/Public/shared_preferences" "${PODS_ROOT}/Headers/Public/xservice_kit"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/flustars" "${PODS_CONFIGURATION_BUILD_DIR}/fluttertoast" "${PODS_CONFIGURATION_BUILD_DIR}/shared_preferences"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Flutter" -isystem "${PODS_ROOT}/Headers/Public/flustars" -isystem "${PODS_ROOT}/Headers/Public/fluttertoast" -isystem "${PODS_ROOT}/Headers/Public/shared_preferences"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"flustars" -l"fluttertoast" -l"shared_preferences" -framework "Flutter"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/flustars" "${PODS_CONFIGURATION_BUILD_DIR}/flutter_boost" "${PODS_CONFIGURATION_BUILD_DIR}/fluttertoast" "${PODS_CONFIGURATION_BUILD_DIR}/shared_preferences" "${PODS_CONFIGURATION_BUILD_DIR}/xservice_kit"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Flutter" -isystem "${PODS_ROOT}/Headers/Public/flustars" -isystem "${PODS_ROOT}/Headers/Public/flutter_boost" -isystem "${PODS_ROOT}/Headers/Public/fluttertoast" -isystem "${PODS_ROOT}/Headers/Public/shared_preferences" -isystem "${PODS_ROOT}/Headers/Public/xservice_kit"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"flustars" -l"flutter_boost" -l"fluttertoast" -l"shared_preferences" -l"xservice_kit" -framework "Flutter"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

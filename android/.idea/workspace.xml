@@ -37,9 +37,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/flutter_sample/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-315">
-              <caret line="22" column="45" lean-forward="true" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+            <state relative-caret-position="300">
+              <caret line="128" column="5" lean-forward="true" selection-start-line="128" selection-start-column="5" selection-end-line="128" selection-end-column="5" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#1588#1589#0" expanded="true" />
                 <element signature="e#1648#1649#0" expanded="true" />
                 <element signature="e#2667#3332#0" expanded="true" />
@@ -245,6 +246,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1897" y="86" width="1440" height="831" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.24964234" />
       <window_info content_ui="combo" id="Project" order="1" weight="0.3297568" />
@@ -382,9 +384,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/flutter_sample/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-315">
-          <caret line="22" column="45" lean-forward="true" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+        <state relative-caret-position="300">
+          <caret line="128" column="5" lean-forward="true" selection-start-line="128" selection-start-column="5" selection-end-line="128" selection-end-column="5" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1588#1589#0" expanded="true" />
             <element signature="e#1648#1649#0" expanded="true" />
             <element signature="e#2667#3332#0" expanded="true" />
